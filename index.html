@@ -47,6 +47,114 @@
 
     
     
+    <style>
+      /* Collapsible sidebar drawer functionality - OPEN BY DEFAULT */
+      .md-sidebar--primary {
+        width: 242px !important;
+        transform: translateX(0);
+        transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        position: fixed !important;
+        left: 0;
+        top: 64px;
+        height: calc(100vh - 64px);
+        z-index: 3;
+        background: var(--md-default-bg-color);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Hide sidebar when drawer toggle is checked */
+      .md-toggle[data-md-toggle="drawer"]:checked ~ .md-container .md-sidebar--primary {
+        transform: translateX(-100%);
+      }
+      
+      /* Content starts with sidebar margin when sidebar is shown */
+      .md-content {
+        max-width: none !important;
+        margin-left: 242px !important;
+        padding: 20px !important;
+        width: calc(100vw - 242px) !important;
+        transition: margin-left 0.25s, width 0.25s;
+      }
+      
+      /* When drawer is closed, content takes full width */
+      .md-toggle[data-md-toggle="drawer"]:checked ~ .md-container .md-content {
+        margin-left: 0 !important;
+        width: 100vw !important;
+      }
+      
+      /* Remove overlay - no backdrop needed for permanent sidebar */
+      .md-overlay {
+        display: none !important;
+      }
+      
+      /* Hide the default hamburger menu */
+      .md-header__button.md-icon[for="__drawer"] {
+        display: none !important;
+      }
+      
+      /* Slim Streamlit-style sidebar toggle button */
+      .sidebar-toggle {
+        position: fixed;
+        top: 50%;
+        left: 242px;
+        z-index: 999;
+        width: 20px;
+        height: 60px;
+        background: #1976D2;
+        border: none;
+        border-radius: 0 8px 8px 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 2px 0 8px rgba(25, 118, 210, 0.3);
+        transition: all 0.3s ease;
+        transform: translateY(-50%);
+      }
+      
+      .sidebar-toggle:hover {
+        background: #1565C0;
+        box-shadow: 2px 0 12px rgba(25, 118, 210, 0.4);
+        width: 25px;
+      }
+      
+      .sidebar-toggle svg {
+        width: 12px;
+        height: 12px;
+        fill: white;
+        transition: transform 0.3s ease;
+        transform: rotate(180deg);
+      }
+      
+      /* When sidebar is closed, move toggle button to the left edge and flip arrow right */
+      .md-toggle[data-md-toggle="drawer"]:checked ~ .sidebar-toggle {
+        left: 0px;
+        border-radius: 0 8px 8px 0;
+        box-shadow: 2px 0 8px rgba(25, 118, 210, 0.3);
+      }
+      
+      .md-toggle[data-md-toggle="drawer"]:checked ~ .sidebar-toggle svg {
+        transform: rotate(0deg);
+      }
+
+      /* Mobile responsiveness for drawer */
+      @media screen and (max-width: 76.1875em) {
+        .md-sidebar--primary {
+          top: 48px;
+          height: calc(100vh - 48px);
+        }
+        
+        .md-content {
+          margin-left: 0 !important;
+          width: 100vw !important;
+        }
+        
+        .md-toggle[data-md-toggle="drawer"]:checked ~ .md-container .md-content {
+          margin-left: 0 !important;
+          width: 100vw !important;
+        }
+      }
+    </style>
     
   </head>
   
@@ -57,6 +165,13 @@
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
+    
+    <!-- Streamlit-style sidebar toggle button -->
+    <label class="sidebar-toggle" for="__drawer">
+      <svg viewBox="0 0 24 24">
+        <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/>
+      </svg>
+    </label>
     <div data-md-component="skip">
       
         
@@ -311,6 +426,27 @@
   
   
     <li class="md-nav__item">
+      <a href="charts.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Charts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="pipeline/" class="md-nav__link">
         
   
@@ -406,12 +542,40 @@
 
 
 
-<h1 id="introduction-to-a-comprehensive-survey-on-explainable-ai-for-conventional-machine-learning-pipeline-and-domains-specific-applications">Introduction to A Comprehensive Survey on Explainable AI for conventional Machine Learning Pipeline and Domains-specific Applications</h1>
-<p>In this repository, we present a live list of references from a comprehensive survey on state-of-the-art efforts in Explainable AI (XAI) for the conventional Machine Learning (ML) pipelines and implementation of XAI across various domains. Our focus is on the methodologies that enhance interpretability at different stages of the ML lifecycle, from data preprocessing to model deployment.</p>
-<p>We begin by examining XAI techniques across various domains. Additionally, we explore research efforts aimed at incorporating explainability into the ML pipline including data curation, feature engineering, model training, evaluation, monitoring and deployment.</p>
-<p>Our goal is to offer a structured overview of existing approaches that bridge the gap between automated ML processes and human-centric decision-making through explainability.</p>
-<h2 id="taxonomy">Taxonomy</h2>
-<p>We are presenting the taxonomy in this paper as shown in the figure below. The taxonomy is divided into six main categories: (1) Input Data Types (2) Types of Explanation (3)Stages of explanation (4) Strategies of explanation (5) XAI for conventional ML pipeline and (6) XAI application across various domains.</p>
+<h1 id="introduction-to-a-comprehensive-survey-on-explainable-ai-for-conventional-machine-learning-pipeline-and-domains-specific-applications">A Comprehensive Survey on Explainable AI for conventional Machine Learning Pipeline and Domains-specific Applications</h1>
+<p>This repository provides a comprehensive, continuously updated 
+  collection of research references exploring Explainable Artificial
+  Intelligence (XAI) within traditional Machine Learning workflows  
+  and domain-specific implementations. We emphasize methodological       
+  approaches that introduce transparency and interpretability
+  throughout the entire ML ecosystem—from initial data preprocessing     
+  through final model deployment.</p>
+
+  <p>Our investigation encompasses XAI methodologies applied across      
+  diverse application domains, while simultaneously examining
+  scholarly contributions that integrate explainability into core ML     
+  pipeline components: data preparation, feature selection and
+  engineering, model development, performance assessment, system
+  monitoring, and production deployment.</p>
+
+  <p>This work aims to provide researchers and practitioners with a      
+  systematic framework that connects automated ML processes with
+  human-interpretable decision-making through principled
+  explainability approaches.</p>
+  
+  <h2 id="taxonomy">Taxonomy Framework</h2>
+  <p>Our proposed taxonomy framework is illustrated through both an      
+  interactive visualization and detailed diagram below. This
+  classification system encompasses six fundamental dimensions: (1)      
+  Input Data Characteristics (2) Explanation Methodologies (3)
+  Temporal Stages of Explanation (4) Strategic Approaches to
+  Explanation (5) XAI Integration within ML Pipelines and (6)
+  Domain-Specific XAI Applications.</p>
+<!-- Interactive Taxonomy Diagram -->
+<div id="taxonomy-diagram" style="width: 100%; background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; margin: 20px 0; text-align: center;">
+    <p style="margin-bottom: 10px; color: #666; font-size: 14px;">Click nodes to expand/collapse branches</p>
+</div>
+
 <p><img alt="XAI Taxonomy" src="img/xai_survey_taxonomy.png" /></p>
 <h2 id="project-contribution">Project Contribution</h2>
 <p>To contribute a change to add more references to our repository, you can follow these steps:</p>
@@ -468,6 +632,9 @@ We are going to review the request, and merge it to the repository.</p>
     
     
       <script src="assets/javascripts/bundle.f1b6f286.min.js"></script>
+      <script src="assets/js/navigation.js"></script>
+      <script src="https://d3js.org/d3.v7.min.js"></script>
+      <script src="assets/js/taxonomy-diagram.js"></script>
       
     
   </body>

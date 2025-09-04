@@ -187,14 +187,12 @@
   
     <li class="md-nav__item">
       <a href=".." class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
+        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"/>
+        </svg>
+        <span class="md-ellipsis nav-text">
+          Home
+        </span>
       </a>
     </li>
   
@@ -215,14 +213,12 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    Papers
-    
-  </span>
-  
-
+        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+        </svg>
+        <span class="md-ellipsis nav-text">
+          Papers
+        </span>
       </a>
       
     </li>
@@ -237,14 +233,31 @@
   
     <li class="md-nav__item">
       <a href="../domains/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Domains
-    
-  </span>
+        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
+        </svg>
+        <span class="md-ellipsis nav-text">
+          Domains
+        </span>
+      </a>
+    </li>
   
 
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../charts.html" class="md-nav__link">
+        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22,21H2V3H4V19H6V10H10V19H12V6H16V19H18V14H22V21Z"/>
+        </svg>
+        <span class="md-ellipsis nav-text">
+          Charts
+        </span>
       </a>
     </li>
   
@@ -258,14 +271,12 @@
   
     <li class="md-nav__item">
       <a href="../pipeline/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Pipeline
-    
-  </span>
-  
-
+        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M15,3H21V9H15V3M9,3H15V9H9V3M3,3H9V9H3V3M15,9H21V15H15V9M9,9H15V15H9V9M3,9H9V15H3V9M15,15H21V21H15V15M9,15H15V21H9V15M3,15H9V21H3V15Z"/>
+        </svg>
+        <span class="md-ellipsis nav-text">
+          Pipeline
+        </span>
       </a>
     </li>
   
@@ -279,14 +290,12 @@
   
     <li class="md-nav__item">
       <a href="../evaluation/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Evaluation
-    
-  </span>
-  
-
+        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12,2C13.1,2 14,2.9 14,4C14,5.1 13.1,6 12,6C10.9,6 10,5.1 10,4C10,2.9 10.9,2 12,2M21,9V7L15,1V3H9V1L3,7V9H21M22,22H2L4,10H20L22,22Z"/>
+        </svg>
+        <span class="md-ellipsis nav-text">
+          Evaluation
+        </span>
       </a>
     </li>
   
@@ -324,7 +333,1580 @@
 
 
 
-  <h1>Papers</h1>
+  <h1>Searchable Papers Database</h1>
+  <p>Explore our comprehensive collection of XAI research papers across multiple domains. Use the search and filters below to find relevant papers.</p>
+  
+  <style>
+  /* Collapsible sidebar drawer functionality - OPEN BY DEFAULT */
+  .md-sidebar--primary {
+    width: 242px !important;
+    transform: translateX(0);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: fixed !important;
+    left: 0;
+    top: 64px;
+    height: calc(100vh - 64px);
+    z-index: 3;
+    background: var(--md-default-bg-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Sidebar will be handled by navigation.js - no transform needed */
+  
+  /* Content padding for better layout */
+  .md-content {
+    max-width: none !important;
+    padding: 20px !important;
+  }
+  
+  /* Remove overlay - no backdrop needed for permanent sidebar */
+  .md-overlay {
+    display: none !important;
+  }
+  
+  /* Hide the default hamburger menu */
+  .md-header__button.md-icon[for="__drawer"] {
+    display: none !important;
+  }
+  
+
+  /* Mobile responsiveness for drawer */
+  @media screen and (max-width: 76.1875em) {
+    .md-sidebar--primary {
+      top: 48px;
+      height: calc(100vh - 48px);
+    }
+    
+    .md-content {
+      padding: 16px !important;
+    }
+  }
+
+  /* Papers page specific styles */
+  .papers-container {
+    max-width: none !important;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  /* Increase page width for papers database */
+  .md-main__inner.md-grid {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .search-filters {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .search-box {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .search-box:focus {
+    outline: none;
+    border-color: #2196F3;
+  }
+  
+  .filter-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+  }
+  
+  .filter-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .filter-select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    font-size: 14px;
+  }
+  
+  .papers-stats {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 18px;
+    color: #666;
+  }
+  
+  .papers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .paper-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .paper-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .paper-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1976D2;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  
+  .paper-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .paper-domain {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .paper-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    font-size: 13px;
+  }
+  
+  .paper-detail {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .paper-detail strong {
+    color: #333;
+    min-width: 80px;
+  }
+  
+  .domain-finance { background-color: #1976D2; }
+  .domain-healthcare { background-color: #7B1FA2; }
+  .domain-industry { background-color: #388E3C; }
+  .domain-aviation { background-color: #F57C00; }
+  .domain-education { background-color: #0288D1; }
+  .domain-cybersecurity { background-color: #C2185B; }
+  .domain-social { background-color: #689F38; }
+  .domain-genetics { background-color: #00796B; }
+  .domain-environment { background-color: #558B2F; }
+  .domain-misc { background-color: #5D4037; }
+  
+  .clear-filters {
+    background: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+  }
+  
+  .clear-filters:hover {
+    background: #d32f2f;
+  }
+  
+  .no-results {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 18px;
+  }
+
+  @media (max-width: 768px) {
+    .papers-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .filter-row {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .filter-group {
+      min-width: auto;
+    }
+  }
+  </style>
+  
+  <div class="search-filters">
+    <input type="text" class="search-box" id="searchBox" placeholder="Search papers by author, title, method, or keyword...">
+    
+    <div class="filter-row">
+      <div class="filter-group">
+        <label class="filter-label">Domain</label>
+        <select class="filter-select" id="domainFilter">
+          <option value="">All Domains</option>
+          <option value="Finance">Finance</option>
+          <option value="Healthcare">Healthcare</option>
+          <option value="Industry 4.0">Industry 4.0</option>
+          <option value="Aviation">Aviation</option>
+          <option value="Education">Education</option>
+          <option value="CyberSecurity">CyberSecurity</option>
+          <option value="Social Media">Social Media</option>
+          <option value="Genetics">Genetics</option>
+          <option value="Environment">Environment</option>
+          <option value="Miscellaneous">Miscellaneous</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label class="filter-label">Task Type</label>
+        <select class="filter-select" id="taskFilter">
+          <option value="">All Tasks</option>
+          <option value="CLS">Classification</option>
+          <option value="REG">Regression</option>
+          <option value="ANOM">Anomaly Detection</option>
+          <option value="RECM">Recommendation</option>
+          <option value="NLP">Natural Language Processing</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label class="filter-label">XAI Method</label>
+        <select class="filter-select" id="methodFilter">
+          <option value="">All Methods</option>
+          <option value="SHAP">SHAP</option>
+          <option value="LIME">LIME</option>
+          <option value="Grad-CAM">Grad-CAM</option>
+          <option value="Attention Mechanisms">Attention Mechanisms</option>
+          <option value="Saliency Maps">Saliency Maps</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label class="filter-label">Year</label>
+        <select class="filter-select" id="yearFilter">
+          <option value="">All Years</option>
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+          <option value="2019">2019</option>
+          <option value="2018">2018</option>
+        </select>
+      </div>
+      
+      <button class="clear-filters" onclick="clearAllFilters()">Clear All</button>
+    </div>
+  </div>
+  
+  <div class="papers-stats" id="papersCount">
+    Loading papers...
+  </div>
+  
+  <div class="papers-grid" id="papersGrid">
+    <!-- Papers will be loaded here dynamically -->
+  </div>
+  
+  <div class="no-results" id="noResults" style="display: none;">
+    No papers found matching your search criteria. Try adjusting your filters.
+  </div>
+
+<script>
+// Complete papers data extracted from LaTeX table - 65 research papers across all domains
+const papersData = [
+  // Finance Domain
+  {
+    domain: "Finance",
+    author: "Nakagawa et al. (2019)",
+    year: "2019",
+    task: "REG",
+    method: "LSTM",
+    xaiMethod: "LRP",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic", 
+    level: "Local",
+    metrics: "Nil",
+    evaluation: "RS, DS, BS",
+    phase: "Training",
+    dataset: "TOPIX500 (Japanese Stock Market)",
+    dataType: "Num",
+    outputType: "Num"
+  },
+  {
+    domain: "Finance",
+    author: "Sachan et al. (2020)",
+    year: "2019",
+    task: "CLS",
+    method: "Gradient Boosting Trees",
+    xaiMethod: "Belief Rule Base",
+    category: "RB",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local/Global",
+    metrics: "Accuracy, Stability",
+    evaluation: "RM, FD",
+    phase: "Training",
+    dataset: "Financial Conduct Authority (FCA) Dataset",
+    dataType: "Num",
+    outputType: "Num"
+  },
+  {
+    domain: "Finance",
+    author: "Bowden et al. (2024)",
+    year: "2020",
+    task: "CLF",
+    method: "Gradient Boosting",
+    xaiMethod: "Shapley Values, PDP",
+    category: "FA, VB",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "AUC",
+    evaluation: "PM, RM",
+    phase: "Training, Monitoring",
+    dataset: "1000 German Banking Customer",
+    dataType: "Num",
+    outputType: "Num"
+  },
+  {
+    domain: "Finance",
+    author: "Bussmann et al. (2021)",
+    year: "2021",
+    task: "CLS",
+    method: "XGBoost",
+    xaiMethod: "TreeSHAP",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "ROC",
+    evaluation: "PM",
+    phase: "Evaluation",
+    dataset: "Credit scoring for SME Companies in Southern Europe",
+    dataType: "Num",
+    outputType: "Bin"
+  },
+  {
+    domain: "Finance",
+    author: "Gramegna and Giudici (2020)",
+    year: "2020",
+    task: "CLS",
+    method: "XGBoost",
+    xaiMethod: "TreeSHAP",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "AUC",
+    evaluation: "RM, DS, BS",
+    phase: "Training, Evaluation",
+    dataset: "Non-life insurance Neosurance Italy-Based Insurance Company",
+    dataType: "Num",
+    outputType: "Cat"
+  },
+  {
+    domain: "Finance",
+    author: "Gite et al. (2021)",
+    year: "2021",
+    task: "CLS",
+    method: "LSTM-CNN",
+    xaiMethod: "LIME",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Accuracy",
+    evaluation: "DS, BS",
+    phase: "Training",
+    dataset: "Indian Financial News Headlines Dataset Pulse, Yahoo Finance dataset",
+    dataType: "Txt",
+    outputType: "Num"
+  },
+  {
+    domain: "Finance",
+    author: "Nguyen and Truong (2024)",
+    year: "2024",
+    task: "CLS",
+    method: "Random Forest",
+    xaiMethod: "LIME",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Gini, AUC",
+    evaluation: "RM, DS, CR",
+    phase: "Training",
+    dataset: "German Credit scoring, Taiwan Default Payment",
+    dataType: "Tab",
+    outputType: "Bin"
+  },
+  {
+    domain: "Finance",
+    author: "Sathe and Mahalle (2023)",
+    year: "2023",
+    task: "CLS",
+    method: "Random Forest",
+    xaiMethod: "LIME, SHAPASH",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Nil",
+    evaluation: "PM",
+    phase: "Training",
+    dataset: "Kaggle",
+    dataType: "Tab",
+    outputType: "Bin"
+  },
+  {
+    domain: "Finance",
+    author: "Yu et al. (2023)",
+    year: "2023",
+    task: "NLP",
+    method: "GPT-4, Open LLaMA",
+    xaiMethod: "Chain-of-Thoughts, Instruction-based Fine-Tuning",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local/Global",
+    metrics: "Precision",
+    evaluation: "RM, BS",
+    phase: "Training",
+    dataset: "5Y NASDAQ-100 Stock Price weekly and Monthly, Company Metadata, historical economic Financial News",
+    dataType: "Num, Tex",
+    outputType: "Num"
+  },
+
+  // Healthcare Domain
+  {
+    domain: "Healthcare",
+    author: "Chereda et al. (2024)",
+    year: "2024",
+    task: "MCLS",
+    method: "GCNN, MLP, Random Forest",
+    xaiMethod: "SHAP, LRP",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local/Global",
+    metrics: "Stability, F1-Score, Accuracy",
+    evaluation: "SD, HDT, DS",
+    phase: "Evaluation",
+    dataset: "TCGA Breast Cancer Gene Expression Dataset, HPRD PPI Network",
+    dataType: "Num",
+    outputType: "Cat"
+  },
+  {
+    domain: "Healthcare",
+    author: "Chittajallu et al. (2019)",
+    year: "2019",
+    task: "CLS",
+    method: "Resnet50",
+    xaiMethod: "Saliency-map",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Nil",
+    evaluation: "PM",
+    phase: "Optimize",
+    dataset: "Cholec80",
+    dataType: "Img",
+    outputType: "Bin"
+  },
+  {
+    domain: "Healthcare",
+    author: "Hossain et al. (2020)",
+    year: "2020",
+    task: "CLS",
+    method: "Resnet50",
+    xaiMethod: "Grad-CAM",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Nil",
+    evaluation: "PM",
+    phase: "Training",
+    dataset: "COVID-19",
+    dataType: "IMG",
+    outputType: "Bin"
+  },
+  {
+    domain: "Healthcare",
+    author: "Monroe et al. (2021)",
+    year: "2021",
+    task: "CLS",
+    method: "ResNet50",
+    xaiMethod: "Grad-CAM, HihO, RISE",
+    category: "FA, VB",
+    timing: "Post-hoc",
+    scope: "Specific",
+    level: "Local,Global",
+    metrics: "Nil",
+    evaluation: "PM",
+    phase: "Evaluation",
+    dataset: "PPMI (Parkinson's Progression Markers Initiative)",
+    dataType: "IMG",
+    outputType: "Cat"
+  },
+  {
+    domain: "Healthcare",
+    author: "Dave et al. (2020)",
+    year: "2020",
+    task: "CLS",
+    method: "XGBoost",
+    xaiMethod: "LIME, SHAP, Anchors, Prototype, Contrastive, IG",
+    category: "FA, EB, SXAI, RB, CB, VB",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Nil",
+    evaluation: "PM",
+    phase: "Deploy",
+    dataset: "Heart Disease Dataset UCI Repo",
+    dataType: "Num",
+    outputType: "Num"
+  },
+  {
+    domain: "Healthcare",
+    author: "Vasquez-Morales et al. (2019)",
+    year: "2022",
+    task: "CLS",
+    method: "NN",
+    xaiMethod: "CBR",
+    category: "EB, CB",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Nil",
+    evaluation: "PM",
+    phase: "Training",
+    dataset: "Database of the Colombian Ministry of Health and Social Protection",
+    dataType: "Num",
+    outputType: "Num"
+  },
+  {
+    domain: "Healthcare",
+    author: "Weitz et al. (2019)",
+    year: "2019",
+    task: "CLS",
+    method: "CNN",
+    xaiMethod: "LRP, LIME",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Nil",
+    evaluation: "PM",
+    phase: "Training",
+    dataset: "UNBC-McMaster shoulder pain expression archive, Actorstudy dataset",
+    dataType: "IMG",
+    outputType: "IMG"
+  },
+
+  // Industry 4.0 Domain (6 papers)
+  {
+    domain: "Industry 4.0",
+    author: "Oyekanlu et al. (2018)",
+    year: "2018",
+    task: "CLS",
+    method: "LSTM",
+    xaiMethod: "Real-Time Adaptive Wavelet Graphs",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Specific",
+    level: "Local",
+    metrics: "Accuracy",
+    evaluation: "PM",
+    phase: "Training",
+    dataset: "IIoT Network Edge Dataset",
+    dataType: "Num",
+    outputType: "Num"
+  },
+  {
+    domain: "Industry 4.0",
+    author: "Rehsa et al. (2019)",
+    year: "2019",
+    task: "CLS",
+    method: "LSTM-RNN",
+    xaiMethod: "Saliency Map",
+    category: "FA, VB",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Recall, Stability",
+    evaluation: "AS",
+    phase: "Training",
+    dataset: "DFKI-Smart Lego Factory",
+    dataType: "Num",
+    outputType: "Num"
+  },
+  {
+    domain: "Industry 4.0",
+    author: "Terziyan and Vitko (2022)",
+    year: "2022",
+    task: "CLS",
+    method: "NN, decision Tree",
+    xaiMethod: "Rule List",
+    category: "RB",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Nil",
+    evaluation: "DS",
+    phase: "Training",
+    dataset: "Smart Manufacturing Dataset",
+    dataType: "Num",
+    outputType: "Bin"
+  },
+  {
+    domain: "Industry 4.0",
+    author: "Sun et al. (2020)",
+    year: "2020",
+    task: "ANOM",
+    method: "Random Forest",
+    xaiMethod: "SHAP",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Accuracy, Precision",
+    evaluation: "DS",
+    phase: "Feature",
+    dataset: "Simulated Manufacturing Dataset",
+    dataType: "Num",
+    outputType: "Cat"
+  },
+  {
+    domain: "Industry 4.0",
+    author: "Liu et al. (2021)",
+    year: "2021",
+    task: "CLS",
+    method: "Gradient Boosting",
+    xaiMethod: "LIME",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "F1-Score, Stability",
+    evaluation: "PM",
+    phase: "Deploy",
+    dataset: "IoT Sensor Data",
+    dataType: "Num",
+    outputType: "Num"
+  },
+  {
+    domain: "Industry 4.0",
+    author: "Radanliev et al. (2022)",
+    year: "2022",
+    task: "ANOM",
+    method: "Transformer",
+    xaiMethod: "Attention Mechanisms",
+    category: "SE-AI",
+    timing: "Intrinsic",
+    scope: "Specific",
+    level: "Global",
+    metrics: "Usability Metrics",
+    evaluation: "AS",
+    phase: "Training",
+    dataset: "Simulated Digital Twin Data",
+    dataType: "Num",
+    outputType: "Cat"
+  },
+
+  // Aviation Domain (3 papers)
+  {
+    domain: "Aviation",
+    author: "Wang et al. (2021)",
+    year: "2022",
+    task: "CLS",
+    method: "Temporal Fusion Transformer (TFT)",
+    xaiMethod: "Not specified",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Not specified",
+    evaluation: "PM",
+    phase: "Training",
+    dataset: "Flight Data Analysis",
+    dataType: "Num, IMG",
+    outputType: "Cat"
+  },
+  {
+    domain: "Aviation",
+    author: "Saraf et al. (2020)",
+    year: "2021",
+    task: "CLS",
+    method: "DNN",
+    xaiMethod: "Not specified",
+    category: "Not specified",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Global",
+    metrics: "Not specified",
+    evaluation: "Not specified",
+    phase: "Develop",
+    dataset: "Flight Safety Monitoring",
+    dataType: "Num",
+    outputType: "Cat"
+  },
+  {
+    domain: "Aviation",
+    author: "Sutthithatip et al. (2021)",
+    year: "2021",
+    task: "DS",
+    method: "NN",
+    xaiMethod: "SHAP, LIME",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local/Global",
+    metrics: "Accuracy, Stability",
+    evaluation: "DS, BS, RM",
+    phase: "Develop",
+    dataset: "Simulated Aircraft Operations Data",
+    dataType: "Num",
+    outputType: "Cat"
+  },
+
+  // Education Domain (7 papers)
+  {
+    domain: "Education",
+    author: "Xie et al. (2021)",
+    year: "2020",
+    task: "CLS",
+    method: "Random Forest",
+    xaiMethod: "SHAP",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Accuracy, Stability",
+    evaluation: "PM, BS, DS, ES",
+    phase: "Training",
+    dataset: "Open University Learning Analytics Dataset",
+    dataType: "Num",
+    outputType: "Cat"
+  },
+  {
+    domain: "Education",
+    author: "Fiok et al. (2022)",
+    year: "2021",
+    task: "RECM",
+    method: "NN",
+    xaiMethod: "LIME",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Precision, Recall",
+    evaluation: "PR, ES",
+    phase: "Training",
+    dataset: "KDD Cup 2010 Dataset",
+    dataType: "Num",
+    outputType: "Cat"
+  },
+  {
+    domain: "Education",
+    author: "Ghosh et al. (2024)",
+    year: "2022",
+    task: "Predict",
+    method: "Gradient Boosting Trees",
+    xaiMethod: "SHAP",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "F1-Score",
+    evaluation: "DS, ES",
+    phase: "Training",
+    dataset: "EdNet Dataset",
+    dataType: "Num",
+    outputType: "Cat"
+  },
+  {
+    domain: "Education",
+    author: "Ribeiro et al. (2019)",
+    year: "2020",
+    task: "REG",
+    method: "Logistic Regression",
+    xaiMethod: "LIME",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Recall, Precision",
+    evaluation: "SE",
+    phase: "Evaluation",
+    dataset: "Classroom Engagement Dataset",
+    dataType: "Num",
+    outputType: "Num"
+  },
+  {
+    domain: "Education",
+    author: "Li et al. (2021)",
+    year: "2021",
+    task: "CLS",
+    method: "Decision Tree",
+    xaiMethod: "SHAP, Counterfactual Explanations",
+    category: "FA, EB",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "ROC-AUC",
+    evaluation: "DS",
+    phase: "Training",
+    dataset: "MOOC Dataset",
+    dataType: "Num",
+    outputType: "Cat"
+  },
+  {
+    domain: "Education",
+    author: "Zheng et al. (2024)",
+    year: "2022",
+    task: "RECM",
+    method: "Neural Collaborative Filtering",
+    xaiMethod: "Attention Mechanism",
+    category: "SE-AI",
+    timing: "Intrinsic",
+    scope: "Specific",
+    level: "Local",
+    metrics: "Stability, F1-Score",
+    evaluation: "PM, BS, PR",
+    phase: "Training",
+    dataset: "EdRecSys Dataset",
+    dataType: "Num",
+    outputType: "Cat"
+  },
+  {
+    domain: "Education",
+    author: "Tiukhova et al. (2024)",
+    year: "2023",
+    task: "CLS",
+    method: "BiLSTM",
+    xaiMethod: "LIME, SHAP",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local/Global",
+    metrics: "Spearman Rank Correlation, Jaccard Similarity",
+    evaluation: "ES, PM, BS",
+    phase: "Evaluation",
+    dataset: "MOOCs and Flipped Classrooms Dataset (EPFL)",
+    dataType: "Num",
+    outputType: "Cat"
+  },
+
+  // CyberSecurity Domain (8 papers)
+  {
+    domain: "CyberSecurity",
+    author: "Qureshi et al. (2024)",
+    year: "2024",
+    task: "CLS",
+    method: "LightGBM, Decision Trees, Logistic Regression, Neural Networks",
+    xaiMethod: "N/A",
+    category: "N/A",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local/Global",
+    metrics: "Not specified",
+    evaluation: "TD",
+    phase: "Evaluation",
+    dataset: "BoTNeTIoT-L01 Dataset",
+    dataType: "Num",
+    outputType: "Cat"
+  },
+  {
+    domain: "CyberSecurity",
+    author: "Madhu et al. (2023)",
+    year: "2023",
+    task: "CLS",
+    method: "Random Forest, TabNet, CNN, SVM, KNN, GNB, Decision Tree",
+    xaiMethod: "Not specified",
+    category: "Not specified",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local/Global",
+    metrics: "Not specified",
+    evaluation: "TD",
+    phase: "Evaluation",
+    dataset: "Smart Home IoT Dataset, NSL-KDD Dataset",
+    dataType: "Num, Cat",
+    outputType: "Cat"
+  },
+  {
+    domain: "CyberSecurity",
+    author: "Liu et al. (2024)",
+    year: "2021",
+    task: "ANOM",
+    method: "DNN",
+    xaiMethod: "Voronoi diagrams",
+    category: "Not specified",
+    timing: "Post-hoc",
+    scope: "Not specified",
+    level: "Local",
+    metrics: "Not specified",
+    evaluation: "PM, BS, DS",
+    phase: "Evaluation",
+    dataset: "Real-time and simulation data",
+    dataType: "Num",
+    outputType: "Num"
+  },
+  {
+    domain: "CyberSecurity",
+    author: "Sarhan et al. (2022)",
+    year: "2021",
+    task: "CLS",
+    method: "Various classifiers",
+    xaiMethod: "SHAP",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local/Global",
+    metrics: "Not specified",
+    evaluation: "RM, PM",
+    phase: "Evaluation",
+    dataset: "IoT security datasets",
+    dataType: "Num",
+    outputType: "Num"
+  },
+  {
+    domain: "CyberSecurity",
+    author: "Le et al. (2023)",
+    year: "2020",
+    task: "CLS",
+    method: "DT, Random Forest",
+    xaiMethod: "SHAP",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Not specified",
+    evaluation: "PM, DS, RM",
+    phase: "Evaluation",
+    dataset: "IoT security system datasets",
+    dataType: "Num",
+    outputType: "Num"
+  },
+  {
+    domain: "CyberSecurity",
+    author: "Rahal et al. (2024)",
+    year: "2021",
+    task: "CLS",
+    method: "kNN, SVM, MLP, tree-based",
+    xaiMethod: "LIME, PFI",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Not specified",
+    evaluation: "CS",
+    phase: "Evaluation",
+    dataset: "IoT botnet attack datasets",
+    dataType: "Num, Cat",
+    outputType: "Num"
+  },
+  {
+    domain: "CyberSecurity",
+    author: "Tabassum et al. (2020)",
+    year: "2020",
+    task: "ANOM",
+    method: "One-Class Classification Algorithms",
+    xaiMethod: "Majority Voting",
+    category: "RB",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Detection Rate",
+    evaluation: "PM, BS",
+    phase: "Develop",
+    dataset: "IoT and Normal Traffic",
+    dataType: "Num",
+    outputType: "Num"
+  },
+  {
+    domain: "CyberSecurity",
+    author: "Wang et al. (2021)",
+    year: "2020",
+    task: "CLS",
+    method: "Not specified",
+    xaiMethod: "SHAP",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local/Global",
+    metrics: "Not specified",
+    evaluation: "PM, RM",
+    phase: "Evaluation",
+    dataset: "IoT network security datasets",
+    dataType: "Num",
+    outputType: "Num"
+  },
+
+  // Social Media Domain (4 papers)
+  {
+    domain: "Social Media",
+    author: "Diwali et al. (2024)",
+    year: "2023",
+    task: "NLP",
+    method: "Random Forest",
+    xaiMethod: "SHAP",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Accuracy, Precision",
+    evaluation: "SP, PM",
+    phase: "Training",
+    dataset: "Twitter Sentiment Analysis Dataset",
+    dataType: "Txt",
+    outputType: "Num"
+  },
+  {
+    domain: "Social Media",
+    author: "Ghosh et al. (2023)",
+    year: "2024",
+    task: "CLS",
+    method: "Gradient Boosting Trees",
+    xaiMethod: "LIME, SHAP",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local/Global",
+    metrics: "F1-Score",
+    evaluation: "PM, BS, DS",
+    phase: "Evaluation",
+    dataset: "FakeNewsNet Dataset",
+    dataType: "Txt",
+    outputType: "Num"
+  },
+  {
+    domain: "Social Media",
+    author: "Ribeiro et al. (2016)",
+    year: "2022",
+    task: "CLS",
+    method: "Neural Networks",
+    xaiMethod: "Attention Mechanisms",
+    category: "SE-AI",
+    timing: "Intrinsic",
+    scope: "Specific",
+    level: "Local/Global",
+    metrics: "Recall, Stability",
+    evaluation: "PM, BS, DS",
+    phase: "Training",
+    dataset: "Instagram Influencer Dataset",
+    dataType: "Txt",
+    outputType: "Cat"
+  },
+  {
+    domain: "Social Media",
+    author: "Ibrahimov et al. (2023)",
+    year: "2024",
+    task: "RECM",
+    method: "Collaborative Filtering",
+    xaiMethod: "Grad-CAM, SHAP",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Specific",
+    level: "Local/Global",
+    metrics: "Usability Metrics",
+    evaluation: "RE, ED",
+    phase: "Deploy",
+    dataset: "YouTube Recommendation Dataset",
+    dataType: "Txt",
+    outputType: "Num"
+  },
+
+  // Genetics Domain (4 papers)
+  {
+    domain: "Genetics",
+    author: "Koo et al. (2018)",
+    year: "2018",
+    task: "CLF",
+    method: "NN",
+    xaiMethod: "Saliency Maps",
+    category: "FA, VB",
+    timing: "Post-hoc",
+    scope: "Specific",
+    level: "Local",
+    metrics: "F1-Score",
+    evaluation: "SD, HDT, DS",
+    phase: "Evaluation",
+    dataset: "DeepBind Dataset",
+    dataType: "Seq",
+    outputType: "Num"
+  },
+  {
+    domain: "Genetics",
+    author: "Chakarborty et al. (2024)",
+    year: "2021",
+    task: "CLS",
+    method: "Random Forest",
+    xaiMethod: "SHAP",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local/Global",
+    metrics: "Stability, F1-Score",
+    evaluation: "HDT, DS, RM",
+    phase: "Training",
+    dataset: "dbSNP Dataset",
+    dataType: "Num",
+    outputType: "Cat"
+  },
+  {
+    domain: "Genetics",
+    author: "Meithi et al. (2021)",
+    year: "2022",
+    task: "CLS",
+    method: "Transformer",
+    xaiMethod: "Attention Mechanisms",
+    category: "SE-AI",
+    timing: "Intrinsic",
+    scope: "Specific",
+    level: "Local",
+    metrics: "Precision, Recall",
+    evaluation: "DS, CR, SD",
+    phase: "Deployment",
+    dataset: "1000 Genomes Dataset",
+    dataType: "Num",
+    outputType: "Seq"
+  },
+  {
+    domain: "Genetics",
+    author: "Novielli et al. (2024)",
+    year: "2024",
+    task: "CLS",
+    method: "Random Forest",
+    xaiMethod: "SHAP",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Accuracy, Stability",
+    evaluation: "PM, BS",
+    phase: "Training",
+    dataset: "Beijing PM2.5 Dataset",
+    dataType: "Num",
+    outputType: "Num"
+  },
+
+  // Environment Domain (6 papers)
+  {
+    domain: "Environment",
+    author: "Trofimov et al. (2024)",
+    year: "2021",
+    task: "CLS",
+    method: "Gradient Boosting Trees",
+    xaiMethod: "LIME",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Precision, Recall",
+    evaluation: "PM, RM, DS",
+    phase: "Evaluation",
+    dataset: "USGS Flood Monitoring Dataset",
+    dataType: "Num",
+    outputType: "Num"
+  },
+  {
+    domain: "Environment",
+    author: "Singh et al. (2024)",
+    year: "2022",
+    task: "CLS",
+    method: "Neural Networks",
+    xaiMethod: "Attention Mechanisms",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Specific",
+    level: "Global",
+    metrics: "Stability, Accuracy",
+    evaluation: "PM, DS, BS",
+    phase: "Monitoring",
+    dataset: "Climate Impact Dataset (CIMP5)",
+    dataType: "Num",
+    outputType: "Cat"
+  },
+  {
+    domain: "Environment",
+    author: "Gholami et al. (2024)",
+    year: "2023",
+    task: "CLS",
+    method: "Decision Trees",
+    xaiMethod: "SHAP",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "F1-Score",
+    evaluation: "PM, BS, DS",
+    phase: "Training",
+    dataset: "Water Quality Monitoring Dataset (EPA)",
+    dataType: "Num",
+    outputType: "Num"
+  },
+  {
+    domain: "Environment",
+    author: "Gao et al. (2022)",
+    year: "2021",
+    task: "REG",
+    method: "CNN",
+    xaiMethod: "Grad-CAM",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Specific",
+    level: "Local",
+    metrics: "Detection Rate",
+    evaluation: "BS, DS",
+    phase: "Evaluation",
+    dataset: "Solar Irradiance Dataset",
+    dataType: "Num",
+    outputType: "Img"
+  },
+  {
+    domain: "Environment",
+    author: "Huang et al. (2023)",
+    year: "2022",
+    task: "Analysis",
+    method: "Random Forest",
+    xaiMethod: "SHAP",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local/Global",
+    metrics: "Usability Metrics",
+    evaluation: "EM",
+    phase: "Deployment",
+    dataset: "Deforestation Satellite Imagery Dataset",
+    dataType: "Img",
+    outputType: "Cat"
+  },
+  {
+    domain: "Environment",
+    author: "Abdollahi and Pradhan (2023)",
+    year: "2023",
+    task: "CLS",
+    method: "Random Forest",
+    xaiMethod: "SHAP",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local/Global",
+    metrics: "Usability Metrics",
+    evaluation: "PM, BS, DS",
+    phase: "Deploy",
+    dataset: "Satellite Imagery Dataset",
+    dataType: "Img",
+    outputType: "Cat"
+  },
+
+  // Miscellaneous Domain (8 papers)
+  {
+    domain: "Miscellaneous",
+    author: "Shashaani et al. (2024)",
+    year: "2024",
+    task: "Strategy Prediction",
+    method: "RL",
+    xaiMethod: "SHAP",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Specific",
+    level: "Local/Global",
+    metrics: "Precision, Accuracy",
+    evaluation: "PR, PM",
+    phase: "Training",
+    dataset: "StarCraft II Dataset",
+    dataType: "Num",
+    outputType: "Num"
+  },
+  {
+    domain: "Miscellaneous",
+    author: "Fulton et al. (2020)",
+    year: "2020",
+    task: "CLS",
+    method: "RL",
+    xaiMethod: "SHAP, LIME",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Stability",
+    evaluation: "PM, BS",
+    phase: "Training",
+    dataset: "Chess Gameplay Dataset",
+    dataType: "Num",
+    outputType: "Num"
+  },
+  {
+    domain: "Miscellaneous",
+    author: "Tao et al. (2020)",
+    year: "2020",
+    task: "CLS",
+    method: "Neural Networks",
+    xaiMethod: "Grad-CAM",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Specific",
+    level: "Local",
+    metrics: "Precision, Usability",
+    evaluation: "PM, BS",
+    phase: "Training",
+    dataset: "Dota 2 Gameplay Dataset",
+    dataType: "Num",
+    outputType: "Num"
+  },
+  {
+    domain: "Miscellaneous",
+    author: "Arora et al. (2023)",
+    year: "2020",
+    task: "CLS",
+    method: "CNN",
+    xaiMethod: "Grad-CAM",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Specific",
+    level: "Local",
+    metrics: "Recall, Precision",
+    evaluation: "PM, BS",
+    phase: "Training",
+    dataset: "WikiArt Dataset",
+    dataType: "Img",
+    outputType: "Cat"
+  },
+  {
+    domain: "Miscellaneous",
+    author: "Bryan-kinns et al. (2023)",
+    year: "2022",
+    task: "Generate",
+    method: "Generative Adversarial Networks",
+    xaiMethod: "Attention Mechanisms",
+    category: "SE-AI",
+    timing: "Intrinsic",
+    scope: "Specific",
+    level: "Global",
+    metrics: "Stability",
+    evaluation: "GA",
+    phase: "Evaluation",
+    dataset: "Generated Art Dataset",
+    dataType: "Img",
+    outputType: "Cat"
+  },
+  {
+    domain: "Miscellaneous",
+    author: "Bryan-Kinns et al. (2023)",
+    year: "2022",
+    task: "RECM",
+    method: "LSTM",
+    xaiMethod: "SHAP, LIME",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "F1-Score",
+    evaluation: "PM, BS",
+    phase: "Evaluation",
+    dataset: "GTZAN Music Dataset",
+    dataType: "Num",
+    outputType: "Cat"
+  },
+  {
+    domain: "Miscellaneous",
+    author: "Ruiz et al. (2022)",
+    year: "2021",
+    task: "RECS",
+    method: "Collaborative Filtering",
+    xaiMethod: "Attention Mechanisms",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Specific",
+    level: "Global",
+    metrics: "Usability Metrics",
+    evaluation: "RM, BS",
+    phase: "Deployment",
+    dataset: "MovieLens Dataset",
+    dataType: "Num",
+    outputType: "Cat"
+  },
+  {
+    domain: "Miscellaneous",
+    author: "Wood et al. (2024)",
+    year: "2020",
+    task: "ANOM",
+    method: "Random Forest",
+    xaiMethod: "SHAP",
+    category: "FA",
+    timing: "Post-hoc",
+    scope: "Agnostic",
+    level: "Local",
+    metrics: "Accuracy, Stability",
+    evaluation: "PM, BS, DS",
+    phase: "Evaluation",
+    dataset: "Military Surveillance Data",
+    dataType: "Num",
+    outputType: "Num"
+  }
+];
+
+let filteredPapers = [...papersData];
+
+function getDomainClass(domain) {
+  const domainClasses = {
+    'Finance': 'domain-finance',
+    'Healthcare': 'domain-healthcare',
+    'Industry 4.0': 'domain-industry',
+    'Aviation': 'domain-aviation',
+    'Education': 'domain-education',
+    'CyberSecurity': 'domain-cybersecurity',
+    'Social Media': 'domain-social',
+    'Genetics': 'domain-genetics',
+    'Environment': 'domain-environment',
+    'Miscellaneous': 'domain-misc'
+  };
+  return domainClasses[domain] || 'domain-misc';
+}
+
+function renderPapers(papers) {
+  const grid = document.getElementById('papersGrid');
+  const noResults = document.getElementById('noResults');
+  const countElement = document.getElementById('papersCount');
+  
+  if (papers.length === 0) {
+    grid.innerHTML = '';
+    noResults.style.display = 'block';
+    countElement.textContent = 'No papers found';
+    return;
+  }
+  
+  noResults.style.display = 'none';
+  countElement.textContent = `Showing ${papers.length} papers`;
+  
+  grid.innerHTML = papers.map(paper => `
+    <div class="paper-card">
+      <div class="paper-domain ${getDomainClass(paper.domain)}">${paper.domain}</div>
+      <div class="paper-title">${paper.author}</div>
+      <div class="paper-meta">
+        <span><strong>Year:</strong> ${paper.year}</span>
+        <span><strong>Task:</strong> ${paper.task}</span>
+      </div>
+      <div class="paper-details">
+        <div class="paper-detail">
+          <strong>Method:</strong>
+          <span>${paper.method}</span>
+        </div>
+        <div class="paper-detail">
+          <strong>XAI:</strong>
+          <span>${paper.xaiMethod}</span>
+        </div>
+        <div class="paper-detail">
+          <strong>Category:</strong>
+          <span>${paper.category}</span>
+        </div>
+        <div class="paper-detail">
+          <strong>Timing:</strong>
+          <span>${paper.timing}</span>
+        </div>
+        <div class="paper-detail">
+          <strong>Scope:</strong>
+          <span>${paper.scope}</span>
+        </div>
+        <div class="paper-detail">
+          <strong>Level:</strong>
+          <span>${paper.level}</span>
+        </div>
+        <div class="paper-detail">
+          <strong>Metrics:</strong>
+          <span>${paper.metrics}</span>
+        </div>
+        <div class="paper-detail">
+          <strong>Dataset:</strong>
+          <span>${paper.dataset}</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterPapers() {
+  const searchTerm = document.getElementById('searchBox').value.toLowerCase();
+  const domainFilter = document.getElementById('domainFilter').value;
+  const taskFilter = document.getElementById('taskFilter').value;
+  const methodFilter = document.getElementById('methodFilter').value;
+  const yearFilter = document.getElementById('yearFilter').value;
+  
+  filteredPapers = papersData.filter(paper => {
+    const matchesSearch = !searchTerm || 
+      paper.author.toLowerCase().includes(searchTerm) ||
+      paper.method.toLowerCase().includes(searchTerm) ||
+      paper.xaiMethod.toLowerCase().includes(searchTerm) ||
+      paper.dataset.toLowerCase().includes(searchTerm) ||
+      paper.domain.toLowerCase().includes(searchTerm);
+    
+    const matchesDomain = !domainFilter || paper.domain === domainFilter;
+    const matchesTask = !taskFilter || paper.task === taskFilter;
+    const matchesMethod = !methodFilter || paper.xaiMethod.includes(methodFilter);
+    const matchesYear = !yearFilter || paper.year === yearFilter;
+    
+    return matchesSearch && matchesDomain && matchesTask && matchesMethod && matchesYear;
+  });
+  
+  renderPapers(filteredPapers);
+}
+
+function clearAllFilters() {
+  document.getElementById('searchBox').value = '';
+  document.getElementById('domainFilter').value = '';
+  document.getElementById('taskFilter').value = '';
+  document.getElementById('methodFilter').value = '';
+  document.getElementById('yearFilter').value = '';
+  filterPapers();
+}
+
+// Event listeners
+document.getElementById('searchBox').addEventListener('input', filterPapers);
+document.getElementById('domainFilter').addEventListener('change', filterPapers);
+document.getElementById('taskFilter').addEventListener('change', filterPapers);
+document.getElementById('methodFilter').addEventListener('change', filterPapers);
+document.getElementById('yearFilter').addEventListener('change', filterPapers);
+
+// Initial render
+document.addEventListener('DOMContentLoaded', function() {
+  renderPapers(papersData);
+});
+</script>
 
 
 
@@ -376,6 +1958,7 @@
     
     
       <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      <script src="../assets/js/navigation.js"></script>
       
     
   </body>

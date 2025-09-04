@@ -264,6 +264,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../charts.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Charts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../pipeline/" class="md-nav__link">
         
   
@@ -334,872 +355,286 @@
 
 
 <h1 id="domains">Domains</h1>
-<p>| {|p{0.5cm}|p{1cm}|p{0.45cm}|p{0.5cm}|p{1cm}|p{1cm}|p{0.5cm}|p{1cm}|p{1cm}|p{1cm}|p{0.8cm}|p{0.5cm}|p{1cm}|p{3.0cm}|p{0.4cm}|p{0.25cm}|} |
-| caption{This table summarises XAI methods applied to different domains and applications. It categorises the tasks, machine learning models, datasets, XAI techniques, and evaluation methods used.} |
-| label{tab:application} |
-| textbf{Domains} | |
-| textbf{Reference} | textbf{Year} | textbf{Task} | textbf{ML Model} | textbf{XAI} | textbf{XAI Category} | multicolumn{3}{c|}{textbf{XAI Taxonomy}} |textbf{XAI Eval}| textbf{Problem Type} | textbf{ML Stage} | textbf{Dataset} |  multicolumn{2}{c|}{textbf{Data Type}} |    <br />
-| ||||||| Intrinsic/ Post-hoc | Specific/ Agnostic | Local/ Global |||||I| O |
-| endfirsthead |
-| textbf{Domains} | |
-| textbf{Reference} | textbf{Year} | textbf{Task} | textbf{ML Model} | textbf{XAI} | textbf{XAI Category} | multicolumn{3}{c|}{textbf{XAI Taxonomy}} | textbf{XAI Eval} | textbf{Problem Type} | textbf{ML Stage} | textbf{Dataset} |  multicolumn{2}{c|}{textbf{Data Type}} |  <br />
-| ||||||| Intrinsic/ Post-hoc | Specific/ Agnostic | Local/ Global |||||I| O |
-| endhead |
-| endfoot |
-| endlastfoot |
-| % data goes here |
-| multirow{9}{<em>}{rotatebox{90}{Finance}} | |
-| Nakagawa et al. cite{nakagawa_deep_2019}| |
-| 2019   | |
-| REG | |
-| LSTM | |
-| LRP   | |
-| FA   | |
-| Post-hoc   | |
-| Agnostic   | |
-| Local  | |
-| Nil | |
-| RS, DS, BS   | |
-| Training   | |
-| TOPIX500 (Japanese Stock Market)   | |
-| Num  | |
-| Num   cline{2-16} |
-| | |
-| Sachan et al. cite{sachan_explainable_2020}   | |
-| 2019 | |
-| CLS | |
-| Gradient Boosting Trees | |
-| Belief Rule Base | RB | Post-hoc | Agnostic | Local/Global | Accuracy, Stability | RM, FD | Training | Financial Conduct Authority (FCA) Dataset | Num | Num |
-| cline{2-16} |
-| | |
-| Bowden et al.~cite{bowden_explainable_2024}| |
-| 2020   | |
-| CLF| |
-| Gradient Boosting  | |
-| Shapley Values, PDP  | |
-| FA, VB   | |
-| Post-hoc   | |
-| Agnostic   | |
-| Local   | |
-| AUC   | |
-| PM, RM   | |
-| Training, Monitoring  | |
-| 1000 German Banking Customer  | |
-| Num  | |
-| Num   cline{2-16} |
-| | |
-| Bussmann et al.~cite{bussmann_explainable_2021}   | |
-| 2021   | |
-| CLS | |
-| XGBoost   | |
-| TreeSHAP   | |
-| FA  | |
-| Post-hoc   | |
-| Agnostic   | |
-| Local   | |
-| ROC | |
-| PM   | |
-| Evaluation   | |
-| Credit scoring for SME Companies in Southern Europe | |
-| Num   | |
-| Bin   cline{2-16} |
-| | |
-| Gramegna and Giudici ~cite{gramegna_why_2020}  | |
-| 2020 |
-| | CLS |
-| | XGBoost |
-| | TreeSHAP |
-| | FA |
-| | Post-hoc |
-| | Agnostic |
-| | Local |
-| | AUC |
-| | RM, DS, BS |
-| | Training, |
-| Evaluation |
-| | Non-life insurance Neosurance Italy-Based Insurance Company |
-| | Num |
-| | Cat        cline{2-16} |
-| | |
-| Gite et al. cite{gite_explainable_2021}   | |
-| 2021   | |
-| CLS | |
-| LSTM-CNN   | |
-| LIME   | |
-| FA  | |
-| Post-hoc    | |
-| Agnostic   | |
-| Local   | |
-| Accuracy | |
-| DS, BS  | |
-| Training   | |
-| Indian Financial News Headlines Dataset Pulse, Yahoo Finance dataset   | |
-| Txt   | |
-| Num   cline{2-16} |
-| | |
-| Nguyen and Truong  cite{nguyen_application_2024} | |
-| 2024   | |
-| CLS | |
-| Random Forest   | |
-| LIME   | |
-| FA  | |
-| Post-hoc   | |
-| Agnostic   | |
-| Local   | |
-| Gini, AUC   | |
-| RM, DS, CR  | |
-| Training  | |
-| German Credit scoring, Taiwan Default Payment   | |
-| Tab | |
-| Bin   cline{2-16} |
-| | |
-| Sathe and Mahalle cite{sathe_predictive_2023}   | |
-| 2023   | |
-| CLS | |
-| Random Forest   | |
-| LIME, SHAPASH   | |
-| FA   | |
-| Post-hoc  | |
-| Agnostic   | |
-| Local  | |
-| Nil | |
-| PM   | |
-| Training   | |
-| Kaggle   | |
-| Tab   | |
-| Bin     cline{2-16} |
-| |  Yu et al.~cite{yu_harnessing_2023} | |
-| 2023 | |
-| NLP | |
-| GPT-4, Open LLaMA | |
-| Chain-of-Thoughts, Instruction-based Fine-Tuning | |
-| FA | |
-| Post-hoc | Agnostic | Local/Global | |
-| Precision  | |
-| RM, BS | |
-| Training | |
-| 5Y NASDAQ-100 Stock Price weekly and Monthly, Company Metadata, historical economic Financial News | |
-| Num, Tex | |
-| Num |
-| multirow{7}{</em>}{rotatebox{90}{Healthcare}} | |
-| Chereda et al.~cite{chereda_stable_2024}| |
-| 2024 | |
-| MCLS | |
-| GCNN, MLP, Random Forest | |
-| SHAP, LRP | |
-| FA | |
-| Post-hoc | Agnostic | Local/Global | |
-| Stability, F1-Score, Accuracy | |
-| SD, HDT, DS | |
-| Evaluation | |
-| TCGA Breast Cancer Gene Expression Dataset, HPRD PPI Network | |
-| Num | |
-| Cat  cline{2-16} |
-| | Chittajallu et al. cite{chittajallu_xai-cbir_2019} | |
-| 2019 | |
-| CLS | |
-| Resnet50 | |
-| Saliency-map | |
-| FA | Post-hoc | Agnostic | Local | Nil | PM | Optimize | Cholec80 | Img | Bin  cline{2-16} |
-| | Hossain et al. cite{hossain_explainable_2020} | |
-| 2020 | |
-| CLS  | |
-| Resnet50 | |
-| Grad-CAM | |
-| FA | |
-| Post-hoc | Agnostic | Local |
-| | Nil | PM | Training | COVID-19 | IMG | Bin  cline{2-16} |
-| | Monroe et al.~cite{monroe_hiho_2021}| |
-| 2021 | |
-| CLS | |
-| ResNet50 | |
-| Grad-CAM, HihO, RISE | |
-| FA, VB | |
-| Post-hoc | Specific | Local,Global  | Nil | |
-| PM | Evaluation | |
-| PPMI (Parkinson's Progression Markers Initiative) | IMG | Cat cline{2-16} |
-| | Hatwell et al.~cite{hatwell_ada-whips_2020} | |
-| 2020 | |
-| CLS | |
-| Adaboost | |
-| Classification Rule  | |
-| RB | |
-| Post-hoc | |
-| Agnostic | |
-| Global | |
-| Nil | |
-| PM | |
-| Monitor | |
-| Breast Cancer, Thyroid, Hospital readmission, Understanding Society, Diabetic Retinopathy, Cleveland heart, Cardiotocography mental health survey 16, Mental Health survey 14, | |
-| Tab | |
-| Rules cline{2-16} |
-| | |
-| Dave et al. cite{dave_explainable_2020} |
-| | 2020 | |
-| CLS | XGBoost | LIME, SHAP, Anchors, Prototype, Contrastive, IG | FA, EB, SXAI, RB, CB, VB | Post-hoc | Agnostic | Local| Nil  | PM| Deploy | Heart Disease Dataset UCI Repo | Num | Num cline{2-16} |
-| | Khodabandehloo et al. cite{khodabandehloo_healthxai_2021} | |
-| 2021 | |
-| REG | |
-| Decision Tree | NLP (Template Based) | RB, CXAI  | Post-hoc | Agnostic | Local |  Nil | BA |  Deploy | Real-world acquired data including persons with MCI and PwD  | Num | Num  cline{2-16} |
-| | Vasquez-Morales et al. cite{vasquez-morales_explainable_2019} | |
-| 2022  | |
-| CLS | |
-| NN | |
-| CBR | EB, CB | Post-hoc | Agnostic | Local | Nil |  PM | Training |  Database of the Colombian Ministry of Health and Social Protection | Num | Num  cline{2-16} |
-| |  Weitz et al. cite{weitz_deep-learned_2019} | |
-| 2019 | |
-| CLS | |
-| CNN  | |
-| LRP, LIME | |
-| FA | Post-hoc | Agnostic | Local | Nil |  PM | Training | UNBC-McMaster shoulder pain expression archive, Actorstudy dataset | IMG | IMG |
-| multirow{10}{<em>}{rotatebox{90}{Industry 4.0}} | |
-| Oyekanlu et al. cite{Oyekanlu_distributed_2018} | 2018 |
-| | CLS |
-| | LSTM |
-| | Real-Time Adaptive Wavelet Graphs |
-| | FA |
-| | Post-hoc |
-| | Specific |
-| | Local |
-| | Accuracy |
-| | PM |
-| | Training |
-| | IIoT Network Edge Dataset |
-| | Num |
-| | Num   cline{2-16} |
-| | Rehsa et al.~cite{rehse_towards_2019} | |
-| 2019 | |
-| CLS |
-| | LSTM-RNN | |
-| Saliency Map | FA, VB | |
-| Post-hoc | Agnostic | Local | Recall, Stability | AS | Training | DFKI-Smart Lego Factory | Num | Num cline{2-16} |
-| | Terziyan and Vitko cite{terziyan_explainable_2022} | |
-| 2022 | |
-| CLS | |
-| NN, decision Tree | |
-| Rule List | |
-| RB | |
-| Post-hoc | Agnostic | Local | Nil | DS | Training | Smart Manufacturing Dataset  | Num | Bin |
-| cline{2-16} |
-| | Sun et al. cite{sun_vision-based_2020} |
-| | 2020 |
-| | ANOM |
-| | Random Forest |
-| | SHAP |
-| | FA |
-| | Post-hoc |
-| | Agnostic |
-| | Local |
-| | Accuracy, Precision |
-| | DS |
-| | Feature |
-| | Simulated Manufacturing Dataset |
-| | Num |
-| | Cat  cline{2-16} |
-| | Liu et al. cite{liu_faixid_2021} |
-| | 2021 |
-| | CLS |
-| | Gradient Boosting |
-| | LIME |
-| | FA |
-| | Post-hoc |
-| | Agnostic |
-| | Local |
-| | F1-Score, Stability |
-| | PM |
-| | Deploy |
-| | IoT Sensor Data |
-| | Num |
-| | Num  cline{2-16} |
-| | Radanliev et al. cite{radanliev_digital_2022} |
-| | 2022 |
-| | ANOM |
-| | Transformer |
-| | Attention Mechanisms |
-| | SE-AI |
-| | Intrinsic |
-| | Specific |
-| | Global |
-| | Usability Metrics |
-| | AS |
-| | Training |
-| | Simulated Digital Twin Data |
-| | Num |
-| | Cat |
-| % | Nair et al. cite{nair_explainable_smart_factory_2023} |
-| % | 2023 |
-| % | Smart Factory Optimization |
-| % | XGBoost |
-| % | SHAP, LIME |
-| % | Feature Attribution |
-| % | Post-hoc |
-| % | Agnostic |
-| % | Local |
-| % | Accuracy, Stability |
-| % | Smart Manufacturing |
-| % | Training |
-| % | Smart Factory Sensor Data |
-| % | Num |
-| % | Num |
-| multirow{4}{</em>}{rotatebox{90}{Aviation}} | |
-| Wang et al.~cite{wang_flight_2021} |
-| | |
-| 2022 | |
-| CLS | |
-| Temporal Fusion Transformer (TFT) |
-| | |
-| | |
-| FA| |
-| Post-hoc | |
-| Agnostic | Local | |
-| Not specified | PM | Training | |
-| Flight Data Analysis | |
-| Num, IMG | |
-| Cat  cline{2-16} |
-| |  Saraf et al.~cite{saraf_explainable_2020} | |
-| 2021 | |
-| CLS | |
-| DNN | |
-| Not specified | |
-| | |
-| Post-hoc | |
-| Agnostic | Global | |
-| Not specified | |
-| | |
-| Develop | |
-| Flight Safety Monitoring  | |
-| Num | |
-| Cat  cline{2-16} |
-| | Sutthithatip et al. cite{sutthithatip_explainable_2021} |
-| | 2021 |
-| | DS |
-| | NN |
-| | SHAP, LIME |
-| | FA |
-| | Post-hoc |
-| | Agnostic |
-| | Local/Global |
-| | Accuracy, Stability |
-| | DS, BS, RM |
-| | Develop |
-| | Simulated Aircraft Operations Data |
-| | Num |
-| | Cat |
-| multirow{7}{<em>}{rotatebox{90}{Education}} |
-| | Xie et al. cite{xie_explanation_2021} |
-| | 2020 |
-| | CLS |
-| | Random Forest |
-| | SHAP |
-| | FA |
-| | Post-hoc |
-| | Agnostic |
-| | Local |
-| | Accuracy, Stability |
-| | PM, BS, DS , ES |
-| | Training |
-| | Open University Learning Analytics Dataset |
-| | Num |
-| | Cat  cline{2-16} |
-| | Fiok et al. cite{fiok_explainable_2022} |
-| | 2021 |
-| | RECM |
-| | NN |
-| | LIME |
-| | FA |
-| | Post-hoc |
-| | Agnostic |
-| | Local |
-| | Precision, Recall |
-| | PR, ES |
-| | Training |
-| | KDD Cup 2010 Dataset |
-| | Num |
-| | Cat  cline{2-16} |
-| | Ghosh et al. cite{ghosh_explainable_2024} |
-| | 2022 |
-| | Predict |
-| | Gradient Boosting Trees |
-| | SHAP |
-| | FA |
-| | Post-hoc |
-| | Agnostic |
-| | Local |
-| | F1-Score |
-| | DS, ES |
-| | Training |
-| | EdNet Dataset |
-| | Num |
-| | Cat  cline{2-16} |
-| | Ribeiro et al.~cite{ribeiro_first-year_2019} |
-| | 2020 |
-| | REG |
-| | Logistic Regression |
-| | LIME |
-| | FA |
-| | Post-hoc |
-| | Agnostic |
-| | Local |
-| | Recall, Precision |
-| | SE |
-| | Evaluation |
-| | Classroom Engagement Dataset |
-| | Num |
-| | Num  cline{2-16} |
-| | Li et al.~cite{li_explainable_2021} |
-| | 2021 |
-| | CLS |
-| | Decision Tree |
-| | SHAP, Counterfactual Explanations |
-| | FA, EB |
-| | Post-hoc |
-| | Agnostic |
-| | Local |
-| | ROC-AUC |
-| | DS |
-| | Training |
-| | MOOC Dataset |
-| | Num |
-| | Cat  cline{2-16} |
-| | Zheng et al. cite{zheng_mapping_2024} |
-| | 2022 |
-| | RECM |
-| | Neural Collaborative Filtering |
-| | Attention Mechanism |
-| | SE-AI |
-| | Intrinsic |
-| | Specific |
-| | Local |
-| | Stability, F1-Score |
-| | PM, BS, PR |
-| | Training |
-| | EdRecSys Dataset |
-| | Num |
-| | Cat  cline{2-16} |
-| | Tiukhova et al. cite{tiukhova_explainable_2024} |
-| | 2023 |
-| | CLS |
-| | BiLSTM |
-| | LIME, SHAP |
-| | FA |
-| | Post-hoc |
-| | Agnostic |
-| | Local/Global |
-| | Spearman Rank Correlation, Jaccard Similarity |
-| | ES, PM, BS |
-| | Evaluation |
-| | MOOCs and Flipped Classrooms Dataset (EPFL) |
-| | Num |
-| | Cat |
-| multirow{7}{</em>}{rotatebox{90}{CyberSecurity}} |
-| | Qureshi et al~cite{qureshi_iot_2024} | |
-| 2024 | |
-| CLS | |
-| LightGBM, Decision Trees, Logistic Regression, Neural Networks | |
-| N/A | |
-| N/A | |
-| Post-hoc | Agnostic | Local/Global | |
-| Not specified | |
-| TD | |
-| Evaluation | |
-| BoTNeTIoT-L01 Dataset | |
-| Num | |
-| Cat  cline{2-16} |
-| | Madhu et al. cite{madhu_intrusion_2023}| |
-| 2023 | |
-| CLS | |
-| Random Forest, TabNet, CNN, SVM, KNN, GNB, Decision Tree | |
-| Not specified | |
-| Not specified | |
-| Post-hoc | Agnostic | Local/Global | |
-| Not specified | |
-| TD | |
-| Evaluation | |
-| Smart Home IoT Dataset, NSL-KDD Dataset | |
-| Num, Cat | |
-| Cat  cline{2-16} |
-| | Liu et al.~cite{liu_leveraging_2024} | 2021 |ANOM | DNN | Voronoi diagrams | | Post-hoc | |  Local | Not specified | PM, BS, DS | Evaluation | Real-time and simulation data | Num | Num |
-| cline{2-16} |
-| | Sarhan et al.~cite{sarhan_feature_2022} | 2021 | CLS| Various classifiers | SHAP | FA | Post-hoc | Agnostic | Local/Global | Not specified | RM, PM | Evaluation | IoT security datasets | Num | Num |
-| cline{2-16} |
-| | Le et al.~cite{le_benchmarking_2023} | 2020 | CLS| DT, Random Forest | SHAP | FA | Post-hoc | Agnostic | Local | Not specified | PM, DS, RM | Evaluation | IoT security system datasets | Num | Num |
-| cline{2-16} |
-| | Rahal et al.~cite{rahal_antibotv_2024} | 2021 | CLS | kNN, SVM, MLP, tree-based | LIME, PFI | FA | Post-hoc | | Local | Not specified | CS | Evaluation | IoT botnet attack datasets | Num, Cat | Num |
-| cline{2-16} |
-| | Tabassum et al. cite{ tabassum_non-intrusive_2020} |
-| | 2020 |
-| | ANOM |
-| | One-Class Classification Algorithms |
-| | Majority Voting |
-| | RB |
-| | Post-hoc |
-| | Agnostic |
-| | Local |
-| | Detection Rate |
-| | PM, BS |
-| | Develop |
-| | IoT and Normal Traffic |
-| | Num |
-| | Num  cline{2-16} |
-| | Wang et al.~cite{wang_explainable_2021} | 2020 | CLS| | SHAP |FA|  Post-hoc  | Local/Global | Not specified | |PM, RM | Evaluation | IoT network security datasets | Num | Num |
-| multirow{4}{<em>}{rotatebox{90}{Social Media}} |
-| | Diwali et al. cite{diwali_sentiment_2024} |
-| | 2023 |
-| | NLP |
-| | Random Forest |
-| | SHAP |
-| | FA |
-| | Post-hoc |
-| | Agnostic |
-| | Local |
-| | Accuracy, Precision |
-| | SP, PM |
-| | Training |
-| | Twitter Sentiment Analysis Dataset |
-| | Txt |
-| | Num  cline{2-16} |
-| | Ghosh et al. cite{ghosh_catching_2023} |
-| | 2024 |
-| | CLS |
-| | Gradient Boosting Trees |
-| | LIME, SHAP |
-| | FA |
-| | Post-hoc |
-| | Agnostic |
-| | Local/Global |
-| | F1-Score |
-| | PM, BS, DS |
-| | Evaluation |
-| | FakeNewsNet Dataset |
-| | Txt |
-| | Num  cline{2-16} |
-| | Ribeiro et al. cite{ribeiro_sentibench_2016} |
-| | 2022 |
-| | CLS |
-| | Neural Networks |
-| | Attention Mechanisms |
-| | SE-AI |
-| | Intrinsic |
-| | Specific |
-| | Local/Global |
-| | Recall, Stability |
-| | PM, BS, DS |
-| | Training |
-| | Instagram Influencer Dataset |
-| | Txt |
-| | Cat  cline{2-16} |
-| | Ibrahimov et al. cite{ibrahim_explainable_2023} |
-| | 2024 |
-| | RECM |
-| | Collaborative Filtering |
-| | Grad-CAM, SHAP |
-| | FA |
-| | Post-hoc |
-| | Specific |
-| | Local/Global |
-| | Usability Metrics |
-| | RE,ED |
-| | Deploy |
-| | YouTube Recommendation Dataset |
-| | Txt |
-| | Num |
-| multirow{5}{</em>}{rotatebox{90}{Genetics}} |
-| | Koo et al. cite{koo_inferring_2018} |
-| | 2018 |
-| | CLF |
-| | NN |
-| | Saliency Maps |
-| | FA, VB |
-| | Post-hoc |
-| | Specific |
-| | Local |
-| | F1-Score |
-| | SD, HDT, DS |
-| | Evaluation |
-| | DeepBind Dataset |
-| | Seq |
-| | Num  cline{2-16} |
-| | Chakarborty et al. cite{chakraborty_explainable_2024} |
-| | 2021 |
-| | CLS |
-| | Random Forest |
-| | SHAP |
-| | FA |
-| | Post-hoc |
-| | Agnostic |
-| | Local/Global |
-| | Stability, F1-Score |
-| | HDT, DS, RM |
-| | Training |
-| | dbSNP Dataset |
-| | Num |
-| | Cat  cline |
-| {2-16} |
-| | Meithi et al. cite{mieth_deepcombi_2021} |
-| | 2022 |
-| | CLS |
-| | Transformer |
-| | Attention Mechanisms |
-| | SE-AI |
-| | Intrinsic |
-| | Specific |
-| | Local |
-| | Precision, Recall |
-| | DS, CR, SD |
-| | Deployment |
-| | 1000 Genomes Dataset |
-| | Num |
-| | Seq  cline{2-16} |
-| | Novielli et al. cite{novielli_explainable_2024} |
-| | 2024 |
-| | CLS |
-| | Random Forest |
-| | SHAP |
-| | FA |
-| | Post-hoc |
-| | Agnostic |
-| | Local |
-| | Accuracy, Stability |
-| | PM, BS |
-| | Training |
-| | Beijing PM2.5 Dataset |
-| | Num |
-| | Num |
-| multirow{5}{<em>}{rotatebox{90}{Environment}} |
-| | Trofimov et alcite{trofimov_enhancing_2024} |
-| | 2021 |
-| | CLS |
-| | Gradient Boosting Trees |
-| | LIME |
-| | FA |
-| | Post-hoc |
-| | Agnostic |
-| | Local |
-| | Precision, Recall |
-| | PM, RM, DS |
-| | Evaluation |
-| | USGS Flood Monitoring Dataset |
-| | Num |
-| | Num  cline{2-16} |
-| | Singh et al. cite{singh_comprehensive_2024} |
-| | 2022 |
-| | CLS |
-| | Neural Networks |
-| | Attention Mechanisms |
-| | FA |
-| | Post-hoc |
-| | Specific |
-| | Global |
-| | Stability, Accuracy |
-| | PM, DS, Bs |
-| | Monitoring |
-| | Climate Impact Dataset (CIMP5) |
-| | Num |
-| | Cat  cline{2-16} |
-| | Gholami et al. cite{gholami_interpretable_2024} |
-| | 2023 |
-| | CLS |
-| | Decision Trees |
-| | SHAP |
-| | FA |
-| | Post-hoc |
-| | Agnostic |
-| | Local |
-| | F1-Score |
-| | PM, BS, DS |
-| | Training |
-| | Water Quality Monitoring Dataset (EPA) |
-| | Num |
-| | Num  cline{2-16} |
-| | Gao et al. cite{gao_use_2022} |
-| | 2021 |
-| | REG |
-| | CNN |
-| | Grad-CAM |
-| | FA |
-| | Post-hoc |
-| | Specific |
-| | Local |
-| | Detection Rate |
-| | BS , DS |
-| | Evaluation |
-| | Solar Irradiance Dataset |
-| | Num |
-| | Img  cline{2-16} |
-| | Huang et al. cite{haque_explainable_2023} |
-| | 2022 |
-| | Analysis |
-| | Random Forest |
-| | SHAP |
-| | FA |
-| | Post-hoc |
-| | Agnostic |
-| | Local/Global |
-| | Usability Metrics |
-| | EM |
-| | Deployment |
-| | Deforestation Satellite Imagery Dataset |
-| | Img |
-| | Cat  cline{2-16} |
-| | Abdollahi and Pradhan~cite{abdollahi_explainable_2023} |
-| | 2023 |
-| | CLS |
-| | Random Forest |
-| | SHAP |
-| | FA |
-| | Post-hoc |
-| | Agnostic |
-| | Local/Global |
-| | Usability Metrics |
-| | PM, BS, DS |
-| | Deploy |
-| | Satellite Imagery Dataset |
-| | Img |
-| | Cat |
-| multirow{8}{</em>}{rotatebox{90}{Miscelaneous}} |
-| | Shashaani et al. cite{shashaani_explainability_2024} |
-| | 2024 |
-| | Strategy Prediction |
-| | RL |
-| | SHAP |
-| | FA |
-| | Post-hoc |
-| | Specific |
-| | Local/Global |
-| | Precision, Accuracy |
-| | PR, PM |
-| | Training |
-| | StarCraft II Dataset |
-| | Num |
-| | Num  cline{2-16} |
-| | Fulton et al. cite{fulton_getting_2020} |
-| | 2020 |
-| | CLS |
-| | RL |
-| | SHAP, LIME |
-| | FA |
-| | Post-hoc |
-| | Agnostic |
-| | Local |
-| | Stability |
-| | PM, BS |
-| | Training |
-| | Chess Gameplay Dataset |
-| | Num |
-| | Num  cline{2-16} |
-| | Tao et al. cite{tao_xai-driven_2020} |
-| | 2020 |
-| | CLS |
-| | Neural Networks |
-| | Grad-CAM |
-| | FA |
-| | Post-hoc |
-| | Specific |
-| | Local |
-| | Precision, Usability |
-| | PM, BS |
-| | Training |
-| | Dota 2 Gameplay Dataset |
-| | Num |
-| | Num  cline{2-16} |
-| | Arora et al. cite{arora_injunction_2023} |
-| | 2020 |
-| | CLS |
-| | CNN |
-| | Grad-CAM |
-| | FA |
-| | Post-hoc |
-| | Specific |
-| | Local |
-| | Recall, Precision |
-| | PM, BS |
-| | Training |
-| | WikiArt Dataset |
-| | Img |
-| | Cat  cline{2-16} |
-| | Bryan-kinns et al. cite{bryan-kinns_explainable_2023} |
-| | 2022 |
-| | Generate |
-| | Generative Adversarial Networks |
-| | Attention Mechanisms |
-| | SE-AI |
-| | Intrinsic |
-| | Specific |
-| | Global |
-| | Stability |
-| | GA |
-| | Evaluation |
-| | Generated Art Dataset |
-| | Img |
-| | Cat  cline{2-16} |
-| | Bryan-Kinns et al. cite{bryan-kinns_exploring_2023} |
-| | 2022 |
-| | RECM |
-| | LSTM |
-| | SHAP, LIME |
-| | FA |
-| | Post-hoc |
-| | Agnostic |
-| | Local |
-| | F1-Score |
-| | PM, BS |
-| | Evaluation |
-| | GTZAN Music Dataset |
-| | Num |
-| | Cat  cline{2-16} |
-| | Ruiz et al. cite{black_explainable_2022} |
-| | 2021 |
-| | RECS |
-| | Collaborative Filtering |
-| | Attention Mechanisms |
-| | FA |
-| | Post-hoc |
-| | Specific |
-| | Global |
-| | Usability Metrics |
-| | RM, BS |
-| | Deployment |
-| | MovieLens Dataset |
-| | Num |
-| | Cat  cline{2-16} |
-| | Wood et al. cite{wood_explainable_2024} |
-| | 2020 |
-| | ANOM |
-| | Random Forest |
-| | SHAP |
-| | FA |
-| | Post-hoc |
-| | Agnostic |
-| | Local |
-| | Accuracy, Stability |
-| | PM, BS, DS |
-| | Evaluation |
-| | Military Surveillance Data |
-| | Num |
-| | Num |
-| bottomrule |
-| multicolumn{16}{l}{[c]{@{}l@{}}* This table used the abbreviations to describe the machine learning textbf{Task} column as Classification (CLF), Regression (REG), Clustering (CLST), Dimensionality Reduction (DRED), Anomaly Detection (ANOM), Predictive Maintenance (PMNT), Decision Support (DSUP),  Business Support (BSUP), Recommendation Systems (RECS), Natural Language Processing (NLP), Computer Vision (CV), Reinforcement Learning (REIN), Transfer Learning (TRNS), Semi-Supervised Learning (SSUP), Multi-Task Learning (MTLK), Online Learning (ONLN), Generative Modeling (GENM), Time Series Forecasting (TSFC), Causal Inference (CAUS). |
-| textbf{XAI Category} is presented by Feature Attribution (FA), Example-Based (EB), Rule-Based (RB), Visualization-Based (VB), Concept-Based (CB), Interactive XAI (IXAI), Static XAI (SXAI), Self-Explanatory AI (SE-AI), Conversational XAI (CXAI) |
-| textbf{ML Stages} are representing Data Curation (Curation), Feature Engineering (Feature), Model Training (Training), Model Optimization (optimization), Model Monitoring and Maintenance (Monitoring). textbf{Problem Type} are defined as Predictive Maintenance (PM), Business Support (BS), Decision Support (DS), Compliance and Regulation (CR), Risk Management (RM), Healthcare Diagnosis and Treatment (HDT), Customer Support (CS), Autonomous Systems (AS), Personalization and Recommendations (PR), Scientific Discovery (SD), Public Policy and Urban Planning (PPUP), Educational Support (ES).}</p>
+<p>This table summarises XAI methods applied to different domains and applications. It categorises the tasks, machine learning models, datasets, XAI techniques, and evaluation methods used.</p>
 
+<style>
+  /* Maximize page width for large table */
+  .md-main__inner.md-grid {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Collapsible sidebar drawer - initially hidden */
+  .md-sidebar--primary {
+    width: 242px !important;
+    transform: translateX(-100%);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: fixed !important;
+    left: 0;
+    top: 64px;
+    height: calc(100vh - 64px);
+    z-index: 3;
+    background: var(--md-default-bg-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Show sidebar when drawer toggle is checked */
+  .md-toggle[data-md-toggle="drawer"]:checked ~ .md-container .md-sidebar--primary {
+    transform: translateX(0);
+  }
+  
+  /* Content starts at full width when sidebar is hidden */
+  .md-content {
+    max-width: none !important;
+    margin-left: 0 !important;
+    padding: 20px !important;
+    width: 100vw !important;
+    transition: margin-left 0.25s, width 0.25s;
+  }
+  
+  /* When drawer is open, adjust content */
+  .md-toggle[data-md-toggle="drawer"]:checked ~ .md-container .md-content {
+    margin-left: 242px !important;
+    width: calc(100vw - 242px) !important;
+  }
+  
+  .md-sidebar--secondary {
+    display: none !important;
+  }
+  
+  /* Overlay for drawer mode */
+  .md-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.54);
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s, visibility 0.25s;
+  }
+  
+  .md-toggle[data-md-toggle="drawer"]:checked ~ .md-overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .md-main {
+    max-width: none !important;
+  }
 
+  /* Table styles */
+  .table-container {
+    overflow-x: auto;
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+  }
+  .domains-table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 1400px;
+    font-size: 10px;
+    margin: 0;
+    background: white;
+  }
+  .domains-table th,
+  .domains-table td {
+    border: 1px solid #ddd;
+    padding: 4px 6px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .domains-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .domain-cell {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-weight: bold;
+    text-align: center;
+    min-width: 30px;
+    max-width: 30px;
+  }
+  /* Hide the default hamburger menu */
+  .md-header__button.md-icon[for="__drawer"] {
+    display: none !important;
+  }
+  
 
+  /* Mobile responsiveness for drawer */
+  @media screen and (max-width: 76.1875em) {
+    .md-sidebar--primary {
+      top: 48px;
+      height: calc(100vh - 48px);
+    }
+    
+    .md-content {
+      margin-left: 0 !important;
+      width: 100vw !important;
+    }
+    
+    .md-toggle[data-md-toggle="drawer"]:checked ~ .md-container .md-content {
+      margin-left: 0 !important;
+      width: 100vw !important;
+    }
+  }
 
+  @media (max-width: 768px) {
+    .domains-table {
+      font-size: 9px;
+    }
+  }
+</style>
 
+<div class="table-container">
+  <table class="domains-table">
+    <thead>
+      <tr>
+        <th rowspan="2" class="domain-cell" style="min-width: 40px;">Domain</th>
+        <th rowspan="2" style="min-width: 120px;">Reference</th>
+        <th rowspan="2" style="min-width: 45px;">Year</th>
+        <th rowspan="2" style="min-width: 50px;">Task</th>
+        <th rowspan="2" style="min-width: 100px;">ML Model</th>
+        <th rowspan="2" style="min-width: 100px;">XAI Method</th>
+        <th rowspan="2" style="min-width: 70px;">XAI Category</th>
+        <th colspan="3">XAI Taxonomy</th>
+        <th rowspan="2" style="min-width: 80px;">XAI Evaluation</th>
+        <th rowspan="2" style="min-width: 90px;">Problem Type</th>
+        <th rowspan="2" style="min-width: 70px;">ML Stage</th>
+        <th rowspan="2" style="min-width: 150px;">Dataset</th>
+        <th colspan="2">Data Type</th>
+      </tr>
+      <tr>
+        <th style="font-size: 9px;">Intrinsic/Post-hoc</th>
+        <th style="font-size: 9px;">Specific/Agnostic</th>
+        <th style="font-size: 9px;">Local/Global</th>
+        <th style="font-size: 9px;">Input</th>
+        <th style="font-size: 9px;">Output</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Finance Domain -->
+      <tr>
+        <td rowspan="9" class="domain-cell" style="background-color: #e8f4fd;">Finance</td>
+        <td>Nakagawa et al. (2019)</td><td>2019</td><td>REG</td><td>LSTM</td><td>LRP</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>Nil</td><td>RS, DS, BS</td><td>Training</td><td>TOPIX500 (Japanese Stock Market)</td><td>Num</td><td>Num</td>
+      </tr>
+      <tr><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Sachan et al. (2020)</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">2019</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">CLS</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Gradient Boosting Trees</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Belief Rule Base</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">RB</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Post-hoc</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Agnostic</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Local/Global</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Accuracy, Stability</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">RM, FD</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Training</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Financial Conduct Authority (FCA) Dataset</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Num</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Num</td></tr>
+      <tr><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Bowden et al. (2024)</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">2020</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">CLF</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Gradient Boosting</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Shapley Values, PDP</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">FA, VB</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Post-hoc</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Agnostic</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Local</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">AUC</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">PM, RM</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Training, Monitoring</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">1000 German Banking Customer</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Num</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Num</td></tr>
+      <tr><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Bussmann et al. (2021)</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">2021</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">CLS</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">XGBoost</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">TreeSHAP</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">FA</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Post-hoc</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Agnostic</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Local</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">ROC</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">PM</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Evaluation</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Credit scoring for SME Companies in Southern Europe</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Num</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Bin</td></tr>
+      <tr><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Gramegna and Giudici (2020)</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">2020</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">CLS</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">XGBoost</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">TreeSHAP</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">FA</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Post-hoc</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Agnostic</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Local</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">AUC</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">RM, DS, BS</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Training, Evaluation</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Non-life insurance Neosurance Italy-Based Insurance Company</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Num</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Cat</td></tr>
+      <tr><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Gite et al. (2021)</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">2021</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">CLS</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">LSTM-CNN</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">LIME</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">FA</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Post-hoc</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Agnostic</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Local</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Accuracy</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">DS, BS</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Training</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Indian Financial News Headlines Dataset Pulse, Yahoo Finance dataset</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Txt</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Num</td></tr>
+      <tr><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Nguyen and Truong (2024)</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">2024</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">CLS</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Random Forest</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">LIME</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">FA</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Post-hoc</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Agnostic</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Local</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Gini, AUC</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">RM, DS, CR</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Training</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">German Credit scoring, Taiwan Default Payment</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Tab</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Bin</td></tr>
+      <tr><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Sathe and Mahalle (2023)</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">2023</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">CLS</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Random Forest</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">LIME, SHAPASH</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">FA</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Post-hoc</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Agnostic</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Local</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Nil</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">PM</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Training</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Kaggle</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Tab</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Bin</td></tr>
+      <tr><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Yu et al. (2023)</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">2023</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">NLP</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">GPT-4, Open LLaMA</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Chain-of-Thoughts, Instruction-based Fine-Tuning</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">FA</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Post-hoc</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Agnostic</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Local/Global</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Precision</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">RM, BS</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Training</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">5Y NASDAQ-100 Stock Price weekly and Monthly, Company Metadata, historical economic Financial News</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Num, Tex</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Num</td></tr>
+      <!-- Healthcare Domain -->
+      <tr><td rowspan="7" style="border: 1px solid #ddd; padding: 6px; text-align: center; font-weight: bold; background-color: #e8f5e8; writing-mode: vertical-rl;">Healthcare</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Chereda et al. (2024)</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">2024</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">MCLS</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">GCNN, MLP, Random Forest</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">SHAP, LRP</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">FA</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Post-hoc</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Agnostic</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Local/Global</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Stability, F1-Score, Accuracy</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">SD, HDT, DS</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Evaluation</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">TCGA Breast Cancer Gene Expression Dataset, HPRD PPI Network</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Num</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Cat</td></tr>
+      <tr><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Chittajallu et al. (2019)</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">2019</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">CLS</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Resnet50</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Saliency-map</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">FA</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Post-hoc</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Agnostic</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Local</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Nil</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">PM</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Optimize</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Cholec80</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Img</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Bin</td></tr>
+      <tr><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Hossain et al. (2020)</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">2020</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">CLS</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Resnet50</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Grad-CAM</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">FA</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Post-hoc</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Agnostic</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Local</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Nil</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">PM</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Training</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">COVID-19</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">IMG</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Bin</td></tr>
+      <tr><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Monroe et al. (2021)</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">2021</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">CLS</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">ResNet50</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Grad-CAM, HihO, RISE</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">FA, VB</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Post-hoc</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Specific</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Local,Global</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Nil</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">PM</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Evaluation</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">PPMI (Parkinson's Progression Markers Initiative)</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">IMG</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Cat</td></tr>
+      <tr><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Dave et al. (2020)</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">2020</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">CLS</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">XGBoost</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">LIME, SHAP, Anchors, Prototype, Contrastive, IG</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">FA, EB, SXAI, RB, CB, VB</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Post-hoc</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Agnostic</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Local</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Nil</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">PM</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Deploy</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Heart Disease Dataset UCI Repo</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Num</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Num</td></tr>
+      <tr><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Vasquez-Morales et al. (2019)</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">2022</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center;">CLS</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">NN</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">CBR</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">EB, CB</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Post-hoc</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Agnostic</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Local</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Nil</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">PM</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Training</td><td style="border: 1px solid #ddd; padding: 6px; font-size: 11px;">Database of the Colombian Ministry of Health and Social Protection</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Num</td><td style="border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 11px;">Num</td></tr>
+      <tr><td>Weitz et al. (2019)</td><td>2019</td><td>CLS</td><td>CNN</td><td>LRP, LIME</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>Nil</td><td>PM</td><td>Training</td><td>UNBC-McMaster shoulder pain expression archive, Actorstudy dataset</td><td>IMG</td><td>IMG</td></tr>
+      
+      <!-- Industry 4.0 Domain -->
+      <tr><td rowspan="6" class="domain-cell" style="background-color: #fff2e6;">Industry 4.0</td><td>Oyekanlu et al. (2018)</td><td>2018</td><td>CLS</td><td>LSTM</td><td>Real-Time Adaptive Wavelet Graphs</td><td>FA</td><td>Post-hoc</td><td>Specific</td><td>Local</td><td>Accuracy</td><td>PM</td><td>Training</td><td>IIoT Network Edge Dataset</td><td>Num</td><td>Num</td></tr>
+      <tr><td>Rehsa et al. (2019)</td><td>2019</td><td>CLS</td><td>LSTM-RNN</td><td>Saliency Map</td><td>FA, VB</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>Recall, Stability</td><td>AS</td><td>Training</td><td>DFKI-Smart Lego Factory</td><td>Num</td><td>Num</td></tr>
+      <tr><td>Terziyan and Vitko (2022)</td><td>2022</td><td>CLS</td><td>NN, decision Tree</td><td>Rule List</td><td>RB</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>Nil</td><td>DS</td><td>Training</td><td>Smart Manufacturing Dataset</td><td>Num</td><td>Bin</td></tr>
+      <tr><td>Sun et al. (2020)</td><td>2020</td><td>ANOM</td><td>Random Forest</td><td>SHAP</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>Accuracy, Precision</td><td>DS</td><td>Feature</td><td>Simulated Manufacturing Dataset</td><td>Num</td><td>Cat</td></tr>
+      <tr><td>Liu et al. (2021)</td><td>2021</td><td>CLS</td><td>Gradient Boosting</td><td>LIME</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>F1-Score, Stability</td><td>PM</td><td>Deploy</td><td>IoT Sensor Data</td><td>Num</td><td>Num</td></tr>
+      <tr><td>Radanliev et al. (2022)</td><td>2022</td><td>ANOM</td><td>Transformer</td><td>Attention Mechanisms</td><td>SE-AI</td><td>Intrinsic</td><td>Specific</td><td>Global</td><td>Usability Metrics</td><td>AS</td><td>Training</td><td>Simulated Digital Twin Data</td><td>Num</td><td>Cat</td></tr>
+      
+      <!-- Aviation Domain -->
+      <tr><td rowspan="3" class="domain-cell" style="background-color: #e6f3ff;">Aviation</td><td>Wang et al. (2021)</td><td>2022</td><td>CLS</td><td>Temporal Fusion Transformer (TFT)</td><td>Not specified</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>Not specified</td><td>PM</td><td>Training</td><td>Flight Data Analysis</td><td>Num, IMG</td><td>Cat</td></tr>
+      <tr><td>Saraf et al. (2020)</td><td>2021</td><td>CLS</td><td>DNN</td><td>Not specified</td><td>Not specified</td><td>Post-hoc</td><td>Agnostic</td><td>Global</td><td>Not specified</td><td>Not specified</td><td>Develop</td><td>Flight Safety Monitoring</td><td>Num</td><td>Cat</td></tr>
+      <tr><td>Sutthithatip et al. (2021)</td><td>2021</td><td>DS</td><td>NN</td><td>SHAP, LIME</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local/Global</td><td>Accuracy, Stability</td><td>DS, BS, RM</td><td>Develop</td><td>Simulated Aircraft Operations Data</td><td>Num</td><td>Cat</td></tr>
+      
+      <!-- Education Domain -->
+      <tr><td rowspan="7" class="domain-cell" style="background-color: #f0f8e6;">Education</td><td>Xie et al. (2021)</td><td>2020</td><td>CLS</td><td>Random Forest</td><td>SHAP</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>Accuracy, Stability</td><td>PM, BS, DS, ES</td><td>Training</td><td>Open University Learning Analytics Dataset</td><td>Num</td><td>Cat</td></tr>
+      <tr><td>Fiok et al. (2022)</td><td>2021</td><td>RECM</td><td>NN</td><td>LIME</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>Precision, Recall</td><td>PR, ES</td><td>Training</td><td>KDD Cup 2010 Dataset</td><td>Num</td><td>Cat</td></tr>
+      <tr><td>Ghosh et al. (2024)</td><td>2022</td><td>Predict</td><td>Gradient Boosting Trees</td><td>SHAP</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>F1-Score</td><td>DS, ES</td><td>Training</td><td>EdNet Dataset</td><td>Num</td><td>Cat</td></tr>
+      <tr><td>Ribeiro et al. (2019)</td><td>2020</td><td>REG</td><td>Logistic Regression</td><td>LIME</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>Recall, Precision</td><td>SE</td><td>Evaluation</td><td>Classroom Engagement Dataset</td><td>Num</td><td>Num</td></tr>
+      <tr><td>Li et al. (2021)</td><td>2021</td><td>CLS</td><td>Decision Tree</td><td>SHAP, Counterfactual Explanations</td><td>FA, EB</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>ROC-AUC</td><td>DS</td><td>Training</td><td>MOOC Dataset</td><td>Num</td><td>Cat</td></tr>
+      <tr><td>Zheng et al. (2024)</td><td>2022</td><td>RECM</td><td>Neural Collaborative Filtering</td><td>Attention Mechanism</td><td>SE-AI</td><td>Intrinsic</td><td>Specific</td><td>Local</td><td>Stability, F1-Score</td><td>PM, BS, PR</td><td>Training</td><td>EdRecSys Dataset</td><td>Num</td><td>Cat</td></tr>
+      <tr><td>Tiukhova et al. (2024)</td><td>2023</td><td>CLS</td><td>BiLSTM</td><td>LIME, SHAP</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local/Global</td><td>Spearman Rank Correlation, Jaccard Similarity</td><td>ES, PM, BS</td><td>Evaluation</td><td>MOOCs and Flipped Classrooms Dataset (EPFL)</td><td>Num</td><td>Cat</td></tr>
+      
+      <!-- CyberSecurity Domain -->
+      <tr><td rowspan="7" class="domain-cell" style="background-color: #ffe6e6;">CyberSecurity</td><td>Qureshi et al. (2024)</td><td>2024</td><td>CLS</td><td>LightGBM, Decision Trees, Logistic Regression, Neural Networks</td><td>N/A</td><td>N/A</td><td>Post-hoc</td><td>Agnostic</td><td>Local/Global</td><td>Not specified</td><td>TD</td><td>Evaluation</td><td>BoTNeTIoT-L01 Dataset</td><td>Num</td><td>Cat</td></tr>
+      <tr><td>Madhu et al. (2023)</td><td>2023</td><td>CLS</td><td>Random Forest, TabNet, CNN, SVM, KNN, GNB, Decision Tree</td><td>Not specified</td><td>Not specified</td><td>Post-hoc</td><td>Agnostic</td><td>Local/Global</td><td>Not specified</td><td>TD</td><td>Evaluation</td><td>Smart Home IoT Dataset, NSL-KDD Dataset</td><td>Num, Cat</td><td>Cat</td></tr>
+      <tr><td>Liu et al. (2024)</td><td>2021</td><td>ANOM</td><td>DNN</td><td>Voronoi diagrams</td><td>Not specified</td><td>Post-hoc</td><td>Not specified</td><td>Local</td><td>Not specified</td><td>PM, BS, DS</td><td>Evaluation</td><td>Real-time and simulation data</td><td>Num</td><td>Num</td></tr>
+      <tr><td>Sarhan et al. (2022)</td><td>2021</td><td>CLS</td><td>Various classifiers</td><td>SHAP</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local/Global</td><td>Not specified</td><td>RM, PM</td><td>Evaluation</td><td>IoT security datasets</td><td>Num</td><td>Num</td></tr>
+      <tr><td>Le et al. (2023)</td><td>2020</td><td>CLS</td><td>DT, Random Forest</td><td>SHAP</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>Not specified</td><td>PM, DS, RM</td><td>Evaluation</td><td>IoT security system datasets</td><td>Num</td><td>Num</td></tr>
+      <tr><td>Rahal et al. (2024)</td><td>2021</td><td>CLS</td><td>kNN, SVM, MLP, tree-based</td><td>LIME, PFI</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>Not specified</td><td>CS</td><td>Evaluation</td><td>IoT botnet attack datasets</td><td>Num, Cat</td><td>Num</td></tr>
+      <tr><td>Tabassum et al. (2020)</td><td>2020</td><td>ANOM</td><td>One-Class Classification Algorithms</td><td>Majority Voting</td><td>RB</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>Detection Rate</td><td>PM, BS</td><td>Develop</td><td>IoT and Normal Traffic</td><td>Num</td><td>Num</td></tr>
+      
+      <!-- Social Media Domain -->
+      <tr><td rowspan="4" class="domain-cell" style="background-color: #f3e6ff;">Social Media</td><td>Diwali et al. (2024)</td><td>2023</td><td>NLP</td><td>Random Forest</td><td>SHAP</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>Accuracy, Precision</td><td>SP, PM</td><td>Training</td><td>Twitter Sentiment Analysis Dataset</td><td>Txt</td><td>Num</td></tr>
+      <tr><td>Ghosh et al. (2023)</td><td>2024</td><td>CLS</td><td>Gradient Boosting Trees</td><td>LIME, SHAP</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local/Global</td><td>F1-Score</td><td>PM, BS, DS</td><td>Evaluation</td><td>FakeNewsNet Dataset</td><td>Txt</td><td>Num</td></tr>
+      <tr><td>Ribeiro et al. (2016)</td><td>2022</td><td>CLS</td><td>Neural Networks</td><td>Attention Mechanisms</td><td>SE-AI</td><td>Intrinsic</td><td>Specific</td><td>Local/Global</td><td>Recall, Stability</td><td>PM, BS, DS</td><td>Training</td><td>Instagram Influencer Dataset</td><td>Txt</td><td>Cat</td></tr>
+      <tr><td>Ibrahimov et al. (2023)</td><td>2024</td><td>RECM</td><td>Collaborative Filtering</td><td>Grad-CAM, SHAP</td><td>FA</td><td>Post-hoc</td><td>Specific</td><td>Local/Global</td><td>Usability Metrics</td><td>RE, ED</td><td>Deploy</td><td>YouTube Recommendation Dataset</td><td>Txt</td><td>Num</td></tr>
+      
+      <!-- Genetics Domain -->
+      <tr><td rowspan="4" class="domain-cell" style="background-color: #e6fff0;">Genetics</td><td>Koo et al. (2018)</td><td>2018</td><td>CLF</td><td>NN</td><td>Saliency Maps</td><td>FA, VB</td><td>Post-hoc</td><td>Specific</td><td>Local</td><td>F1-Score</td><td>SD, HDT, DS</td><td>Evaluation</td><td>DeepBind Dataset</td><td>Seq</td><td>Num</td></tr>
+      <tr><td>Chakarborty et al. (2024)</td><td>2021</td><td>CLS</td><td>Random Forest</td><td>SHAP</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local/Global</td><td>Stability, F1-Score</td><td>HDT, DS, RM</td><td>Training</td><td>dbSNP Dataset</td><td>Num</td><td>Cat</td></tr>
+      <tr><td>Meithi et al. (2021)</td><td>2022</td><td>CLS</td><td>Transformer</td><td>Attention Mechanisms</td><td>SE-AI</td><td>Intrinsic</td><td>Specific</td><td>Local</td><td>Precision, Recall</td><td>DS, CR, SD</td><td>Deployment</td><td>1000 Genomes Dataset</td><td>Num</td><td>Seq</td></tr>
+      <tr><td>Novielli et al. (2024)</td><td>2024</td><td>CLS</td><td>Random Forest</td><td>SHAP</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>Accuracy, Stability</td><td>PM, BS</td><td>Training</td><td>Beijing PM2.5 Dataset</td><td>Num</td><td>Num</td></tr>
+      
+      <!-- Environment Domain -->
+      <tr><td rowspan="6" class="domain-cell" style="background-color: #e6ffe6;">Environment</td><td>Trofimov et al. (2024)</td><td>2021</td><td>CLS</td><td>Gradient Boosting Trees</td><td>LIME</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>Precision, Recall</td><td>PM, RM, DS</td><td>Evaluation</td><td>USGS Flood Monitoring Dataset</td><td>Num</td><td>Num</td></tr>
+      <tr><td>Singh et al. (2024)</td><td>2022</td><td>CLS</td><td>Neural Networks</td><td>Attention Mechanisms</td><td>FA</td><td>Post-hoc</td><td>Specific</td><td>Global</td><td>Stability, Accuracy</td><td>PM, DS, BS</td><td>Monitoring</td><td>Climate Impact Dataset (CIMP5)</td><td>Num</td><td>Cat</td></tr>
+      <tr><td>Gholami et al. (2024)</td><td>2023</td><td>CLS</td><td>Decision Trees</td><td>SHAP</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>F1-Score</td><td>PM, BS, DS</td><td>Training</td><td>Water Quality Monitoring Dataset (EPA)</td><td>Num</td><td>Num</td></tr>
+      <tr><td>Gao et al. (2022)</td><td>2021</td><td>REG</td><td>CNN</td><td>Grad-CAM</td><td>FA</td><td>Post-hoc</td><td>Specific</td><td>Local</td><td>Detection Rate</td><td>BS, DS</td><td>Evaluation</td><td>Solar Irradiance Dataset</td><td>Num</td><td>Img</td></tr>
+      <tr><td>Huang et al. (2023)</td><td>2022</td><td>Analysis</td><td>Random Forest</td><td>SHAP</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local/Global</td><td>Usability Metrics</td><td>EM</td><td>Deployment</td><td>Deforestation Satellite Imagery Dataset</td><td>Img</td><td>Cat</td></tr>
+      <tr><td>Abdollahi and Pradhan (2023)</td><td>2023</td><td>CLS</td><td>Random Forest</td><td>SHAP</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local/Global</td><td>Usability Metrics</td><td>PM, BS, DS</td><td>Deploy</td><td>Satellite Imagery Dataset</td><td>Img</td><td>Cat</td></tr>
+      
+      <!-- Miscellaneous Domain -->
+      <tr><td rowspan="8" class="domain-cell" style="background-color: #fff0e6;">Miscellaneous</td><td>Shashaani et al. (2024)</td><td>2024</td><td>Strategy Prediction</td><td>RL</td><td>SHAP</td><td>FA</td><td>Post-hoc</td><td>Specific</td><td>Local/Global</td><td>Precision, Accuracy</td><td>PR, PM</td><td>Training</td><td>StarCraft II Dataset</td><td>Num</td><td>Num</td></tr>
+      <tr><td>Fulton et al. (2020)</td><td>2020</td><td>CLS</td><td>RL</td><td>SHAP, LIME</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>Stability</td><td>PM, BS</td><td>Training</td><td>Chess Gameplay Dataset</td><td>Num</td><td>Num</td></tr>
+      <tr><td>Tao et al. (2020)</td><td>2020</td><td>CLS</td><td>Neural Networks</td><td>Grad-CAM</td><td>FA</td><td>Post-hoc</td><td>Specific</td><td>Local</td><td>Precision, Usability</td><td>PM, BS</td><td>Training</td><td>Dota 2 Gameplay Dataset</td><td>Num</td><td>Num</td></tr>
+      <tr><td>Arora et al. (2023)</td><td>2020</td><td>CLS</td><td>CNN</td><td>Grad-CAM</td><td>FA</td><td>Post-hoc</td><td>Specific</td><td>Local</td><td>Recall, Precision</td><td>PM, BS</td><td>Training</td><td>WikiArt Dataset</td><td>Img</td><td>Cat</td></tr>
+      <tr><td>Bryan-kinns et al. (2023)</td><td>2022</td><td>Generate</td><td>Generative Adversarial Networks</td><td>Attention Mechanisms</td><td>SE-AI</td><td>Intrinsic</td><td>Specific</td><td>Global</td><td>Stability</td><td>GA</td><td>Evaluation</td><td>Generated Art Dataset</td><td>Img</td><td>Cat</td></tr>
+      <tr><td>Bryan-Kinns et al. (2023)</td><td>2022</td><td>RECM</td><td>LSTM</td><td>SHAP, LIME</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>F1-Score</td><td>PM, BS</td><td>Evaluation</td><td>GTZAN Music Dataset</td><td>Num</td><td>Cat</td></tr>
+      <tr><td>Ruiz et al. (2022)</td><td>2021</td><td>RECS</td><td>Collaborative Filtering</td><td>Attention Mechanisms</td><td>FA</td><td>Post-hoc</td><td>Specific</td><td>Global</td><td>Usability Metrics</td><td>RM, BS</td><td>Deployment</td><td>MovieLens Dataset</td><td>Num</td><td>Cat</td></tr>
+      <tr><td>Wood et al. (2024)</td><td>2020</td><td>ANOM</td><td>Random Forest</td><td>SHAP</td><td>FA</td><td>Post-hoc</td><td>Agnostic</td><td>Local</td><td>Accuracy, Stability</td><td>PM, BS, DS</td><td>Evaluation</td><td>Military Surveillance Data</td><td>Num</td><td>Num</td></tr>
+    </tbody>
+  </table>
+</div>
 
-
-
-
-
-
-
-                
-              </article>
-            </div>
-          
-          
-<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-        </div>
+<h2>Legend</h2>
+<div style="font-size: 11px; margin: 20px 0;">
+  <h3>Abbreviations:</h3>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+    <div>
+      <p><strong>Task Types:</strong></p>
+      <ul style="margin: 0; padding-left: 15px;">
+        <li>CLF/CLS - Classification</li>
+        <li>REG - Regression</li>
+        <li>ANOM - Anomaly Detection</li>
+        <li>RECM - Recommendation</li>
+        <li>NLP - Natural Language Processing</li>
+      </ul>
+    </div>
+    <div>
+      <p><strong>XAI Categories:</strong></p>
+      <ul style="margin: 0; padding-left: 15px;">
+        <li>FA - Feature Attribution</li>
+        <li>EB - Example-Based</li>
+        <li>RB - Rule-Based</li>
+        <li>VB - Visualization-Based</li>
+        <li>CB - Concept-Based</li>
+      </ul>
+    </div>
+  </div>
+</div>
         
       </main>
       
@@ -1230,6 +665,7 @@
     
     
       <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      <script src="../assets/js/navigation.js"></script>
       
     
   </body>
