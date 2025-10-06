@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="../assets/images/favicon.png">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+    <title>ML Algorithms - Survey XAI with Conventional ML Pipeline</title>
+    <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>
+      :root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}
+      
+      /* Table styling */
+      .ml-table-container {
+        overflow-x: auto;
+        margin: 20px 0;
+        padding: 20px;
+      }
+      
+      .ml-algorithms-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+      
+      .ml-algorithms-table thead {
+        background: var(--md-primary-fg-color, #526cfe);
+        color: white;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+      
+      .ml-algorithms-table th {
+        padding: 15px 10px;
+        text-align: left;
+        font-weight: 600;
+        border: 1px solid rgba(255,255,255,0.2);
+      }
+      
+      .ml-algorithms-table td {
+        padding: 12px 10px;
+        border: 1px solid #e0e0e0;
+        vertical-align: top;
+      }
+      
+      .ml-algorithms-table tbody tr:hover {
+        background: #f5f7ff;
+        transition: background 0.3s ease;
+      }
+      
+      .pipeline-stage {
+        background: #f0f4ff;
+        font-weight: 600;
+        color: var(--md-primary-fg-color);
+        text-align: center;
+      }
+      
+      .examples-list {
+        margin: 0;
+        padding-left: 20px;
+      }
+      
+      .examples-list li {
+        margin: 5px 0;
+        line-height: 1.4;
+      }
+      
+      .approach-name {
+        font-weight: 500;
+        color: #333;
+      }
+      
+      .ml-algo-type {
+        color: #666;
+        font-style: italic;
+      }
+      
+      .explanation-type {
+        background: #e3f2fd;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-size: 12px;
+        display: inline-block;
+      }
+    </style>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+  </head>
+  
+  <body dir="ltr">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    
+    <div data-md-component="skip"></div>
+    <div data-md-component="announce"></div>
+    
+    <header class="md-header md-header--shadow" data-md-component="header">
+      <nav class="md-header__inner md-grid" aria-label="Header">
+        <a href=".." title="Survey XAI with Conventional ML Pipeline" class="md-header__button md-logo" aria-label="Survey XAI with Conventional ML Pipeline" data-md-component="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">Survey XAI with Conventional ML Pipeline</span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis">ML Algorithms</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <!-- Navigation will be injected by navigation.js -->
+              </div>
+            </div>
+          </div>
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+              <h1 id="ml-algorithms-xai-approaches">ML Algorithms with XAI Approaches Across Pipeline Stages</h1>
+              
+              <p>This comprehensive table presents the integration of Explainable AI (XAI) approaches with various Machine Learning algorithms across different pipeline stages. Each stage of the ML pipeline benefits from specific XAI techniques that enhance interpretability and transparency.</p>
+              
+              <div class="ml-table-container">
+                <table class="ml-algorithms-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 15%">Pipeline Stage</th>
+                      <th style="width: 20%">XAI Approach</th>
+                      <th style="width: 20%">ML Algorithm Type</th>
+                      <th style="width: 30%">Examples</th>
+                      <th style="width: 15%">Type of Explanation</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Data Curation Stage -->
+                    <tr>
+                      <td rowspan="10" class="pipeline-stage">Data Curation</td>
+                      <td class="approach-name">Data Collection and Preparation</td>
+                      <td class="ml-algo-type">Data-Centric Approaches</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Feature Selection</li>
+                          <li>Data Imputation</li>
+                          <li>Correcting noisy data</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Data Attribution</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Outlier Detection</td>
+                      <td class="ml-algo-type">Statistical/Clustering Algorithms</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Isolation Forest</li>
+                          <li>DBSCAN</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Anomaly-Based Explanation</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Data Augmentation</td>
+                      <td class="ml-algo-type">Data Transformation Techniques</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>SMOTE (Synthetic Minority Oversampling)</li>
+                          <li>GAN (Generative Adversarial Networks)</li>
+                          <li>Image augmentations (flipping, rotation, scaling)</li>
+                          <li>NLP augmentations (back translation, word embeddings)</li>
+                          <li>Time-series augmentations (jittering, window slicing)</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Synthetic Data Attribution</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Missing Data Handling</td>
+                      <td class="ml-algo-type">Pre-processing Algorithms</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Data imputation techniques</li>
+                          <li>Dataset rebalancing</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Completeness Attribution</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Mitigating Data Bias</td>
+                      <td class="ml-algo-type">Concept-Based Fairness Assessment</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Concept Activation Vectors (CAVs)</li>
+                          <li>Testing with CAVs (TCAV)</li>
+                          <li>Text2Concept</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Bias Identification</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Out-of-Distribution Detection</td>
+                      <td class="ml-algo-type">XAI-Based Methods</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Visual concepts</li>
+                          <li>Weighted Mutual Information</li>
+                          <li>Noise label correction</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Data Irregularity Detection</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Visualization Techniques</td>
+                      <td class="ml-algo-type">Interactive Dashboards</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Partial Dependence Plots (PDPs)</li>
+                          <li>Individual Conditional Expectation (ICE)</li>
+                          <li>Combined PDP, ICE, and SHAP visualizations</li>
+                          <li>Prospector Tool</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Feature-Level Insights</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Counterfactual Explanations</td>
+                      <td class="ml-algo-type">Optimization-Based Methods</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>FIDO</li>
+                          <li>DiCE</li>
+                          <li>Counterfactual Visual Explanations</li>
+                          <li>CountARFactuals</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">What-If Scenarios</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">User Feedback Loop</td>
+                      <td class="ml-algo-type">Feedback-Based Approaches</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>User-supported counterfactual generation</li>
+                          <li>Linguistic counterfactuals</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Trustworthy Counterfactuals</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Dimensionality Reduction</td>
+                      <td class="ml-algo-type">Dimensionality Reduction Techniques</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Principal Component Analysis (PCA)</li>
+                          <li>t-SNE for visualizing clusters</li>
+                          <li>UMAP (Uniform Manifold Approximation)</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Clustering Attribution</span></td>
+                    </tr>
+                    
+                    <!-- Feature Engineering Stage -->
+                    <tr>
+                      <td rowspan="9" class="pipeline-stage">Feature Engineering</td>
+                      <td class="approach-name">Feature Importance Analysis</td>
+                      <td class="ml-algo-type">Attribution-Based Techniques</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>LIME (Local Interpretable Model-agnostic Explanations)</li>
+                          <li>SHAP (SHapley Additive exPlanations)</li>
+                          <li>FIT for temporal models</li>
+                          <li>TIME for temporal explanations</li>
+                          <li>TimeShap for sequence models</li>
+                          <li>Graph feature importance (FIFI)</li>
+                          <li>Node feature importance for GNNs</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Importance Attribution</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Redundant Feature Detection</td>
+                      <td class="ml-algo-type">Visualization and Attribution</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Correlation heatmaps</li>
+                          <li>Partial Dependence Plots (PDPs)</li>
+                          <li>SHAP for redundancy detection</li>
+                          <li>LIME for low-scoring features</li>
+                          <li>Variance Inflation Factor (VIF)</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Redundancy Detection</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Identifying Feature Correlation</td>
+                      <td class="ml-algo-type">Hybrid Approaches</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Influence functions</li>
+                          <li>Hybrid SHAP and VIF</li>
+                          <li>Attribution-based methods</li>
+                          <li>Statistical and visualization tools</li>
+                          <li>Feature maps</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Correlation Interpretation</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Feature Interaction Analysis</td>
+                      <td class="ml-algo-type">Interaction-Based Techniques</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Interaction plots</li>
+                          <li>GNNExplainer for GNNs</li>
+                          <li>PGMExplainer for probabilistic models</li>
+                          <li>XGNN for generating explanations</li>
+                          <li>Shapley Interaction Index</li>
+                          <li>Shapley Taylor Interaction</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Interaction Attribution</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Identifying Non-Linear Relationships</td>
+                      <td class="ml-algo-type">Visualization-Based Techniques</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>PDPs for global patterns</li>
+                          <li>ICE plots for instance-level</li>
+                          <li>SHAP for non-linear dynamics</li>
+                          <li>Layer-wise Relevance Propagation (LRP)</li>
+                          <li>Feature maps for non-linear relationships</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Non-Linear Attribution</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Generative Feature Techniques</td>
+                      <td class="ml-algo-type">Neuron Activation Methods</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Image generation for neuron activation</li>
+                          <li>Synthesizing features for activation</li>
+                          <li>Explainable Data Augmentation</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Feature Generation</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Differentiation-Based Methods</td>
+                      <td class="ml-algo-type">Gradient-Based Techniques</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Integrated Gradients</li>
+                          <li>SmoothGrad</li>
+                          <li>DeepLift</li>
+                          <li>GradSHAP</li>
+                          <li>Integrated Hessians</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Gradient Attribution</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Redundant or Correlated Features</td>
+                      <td class="ml-algo-type">Dependency-Based Techniques</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Kernel SHAP for collinearity</li>
+                          <li>Shapley cohort refinement</li>
+                          <li>Normalized Movement Rate (NMR)</li>
+                          <li>Statistical correlation matrices</li>
+                          <li>SHAP dependence plots</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Dependency Attribution</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Feature Construction Techniques</td>
+                      <td class="ml-algo-type">Transformation and Generation</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Polynomial feature construction</li>
+                          <li>Autoencoder-based latent features</li>
+                          <li>Interaction-based feature generation</li>
+                          <li>Embedding-based feature creation</li>
+                          <li>Generative models for feature construction</li>
+                          <li>Sparse feature representations</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Constructive Attribution</span></td>
+                    </tr>
+                    
+                    <!-- Model Training Stage -->
+                    <tr>
+                      <td rowspan="5" class="pipeline-stage">Model Training</td>
+                      <td class="approach-name">Algorithmic Interpretability</td>
+                      <td class="ml-algo-type">Surrogate Models</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>LIME</li>
+                          <li>SHAP</li>
+                          <li>Anchors</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Model Decision Attribution</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Activation-Based Optimization</td>
+                      <td class="ml-algo-type">Attention-Based Techniques</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Grad-CAM</li>
+                          <li>Score-CAM</li>
+                          <li>Grad-CAM++</li>
+                          <li>Attention rollout</li>
+                          <li>Transformer attribution</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Attention Attribution</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Architectural Adjustments</td>
+                      <td class="ml-algo-type">Pruning and Quantization</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Explainable quantization</li>
+                          <li>Gradient-based pruning</li>
+                          <li>Attention Branch Networks (ABN)</li>
+                          <li>Domain generalization with XAI feedback</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Architecture Optimization</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Model Reasoning Process</td>
+                      <td class="ml-algo-type">Intermediate Feature Visualization</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Deconvolution</li>
+                          <li>Eigen-CAM</li>
+                          <li>Network dissection</li>
+                          <li>DeepVis</li>
+                          <li>DeepDream</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Layer Attribution</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Multimodal Explanations</td>
+                      <td class="ml-algo-type">Cross-Modal Attribution</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Visual Question Answering (VQA-X)</li>
+                          <li>Cross-modal attention maps</li>
+                          <li>Personality-aligned visual-language explanations</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Multimodal Attribution</span></td>
+                    </tr>
+                    
+                    <!-- Model Optimization Stage -->
+                    <tr>
+                      <td rowspan="5" class="pipeline-stage">Model Optimization</td>
+                      <td class="approach-name">Model Diagnosis</td>
+                      <td class="ml-algo-type">Post-Hoc Explanations</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>LIME for local feature attribution</li>
+                          <li>SHAP for global and local attribution</li>
+                          <li>Adversarial examples for feature importance</li>
+                          <li>Counterfactual SHAP for debugging</li>
+                          <li>Integrated Gradients for robustness</li>
+                          <li>Error attribution using adversarial data</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Debugging Explanation</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Feature Interaction Explanations</td>
+                      <td class="ml-algo-type">Interaction-Based Techniques</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>SHAP Interaction Values</li>
+                          <li>Neural Interaction Detection (NID)</li>
+                          <li>Interaction plots for feature relationships</li>
+                          <li>Integrated Gradients for feature interaction</li>
+                          <li>Shapley Interaction Index</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Interaction Attribution</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Model Validation</td>
+                      <td class="ml-algo-type">Validation Techniques</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Alibi for model validation</li>
+                          <li>Causal inference for bias detection</li>
+                          <li>FairSHAP for fairness validation</li>
+                          <li>Saliency maps for critical region analysis</li>
+                          <li>GradCAM for region-level explanations</li>
+                          <li>SmoothGrad for noise reduction</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Performance Explanation</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Gradient-Based Optimization</td>
+                      <td class="ml-algo-type">Gradient-Based Techniques</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>DeepSHAP combining SHAP and DeepLIFT</li>
+                          <li>Integrated Hessians for higher-order interactions</li>
+                          <li>XRAI for region-based saliency</li>
+                          <li>GradSHAP for gradient and Shapley values</li>
+                          <li>Gradient-based saliency maps</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Gradient Attribution</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Optimization Path Attribution</td>
+                      <td class="ml-algo-type">Optimization Trajectory Analysis</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Optimization path attribution</li>
+                          <li>Explainable hyperparameter tuning</li>
+                          <li>Bayesian optimization with explainability</li>
+                          <li>Model performance tracking during optimization</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Learning Dynamics</span></td>
+                    </tr>
+                    
+                    <!-- Monitoring and Maintenance Stage -->
+                    <tr>
+                      <td rowspan="7" class="pipeline-stage">Monitoring & Maintenance</td>
+                      <td class="approach-name">Model Transparency</td>
+                      <td class="ml-algo-type">Transparent Models</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Glass-box models (decision trees, linear regression)</li>
+                          <li>Model explanations with SHAP</li>
+                          <li>Counterfactual explanations for user decisions</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Transparency Attribution</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Model Audit</td>
+                      <td class="ml-algo-type">Regulatory Compliance Techniques</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Feature importance for sensitivity analysis</li>
+                          <li>Counterfactual explanations for audit trails</li>
+                          <li>Adversarial examples for robustness testing</li>
+                          <li>Influential sample analysis</li>
+                          <li>Saliency maps for critical region identification</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Compliance Attribution</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Drift Detection</td>
+                      <td class="ml-algo-type">Statistical and Model-Agnostic Methods</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>KS Test for drift analysis</li>
+                          <li>Population Stability Index (PSI)</li>
+                          <li>Distribution-based monitoring</li>
+                          <li>SHAP drift analysis for feature changes</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Drift Attribution</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Model Performance Monitoring</td>
+                      <td class="ml-algo-type">Automated Pipelines and Tools</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Performance metrics tracking (AUC, accuracy)</li>
+                          <li>MLflow for model lifecycle management</li>
+                          <li>Continuous monitoring for retraining triggers</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Performance Attribution</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Knowledge-Aware Explanations</td>
+                      <td class="ml-algo-type">Concept-Based Techniques</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Concept Activation Vectors (CAVs)</li>
+                          <li>TCAV for directional sensitivity</li>
+                          <li>ACE for automatic concept generation</li>
+                          <li>ConceptSHAP for feature completeness</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Scalable Attribution</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Retraining and Updates</td>
+                      <td class="ml-algo-type">Automated Update Pipelines</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Continuous retraining pipelines</li>
+                          <li>Dataset versioning with DVC</li>
+                          <li>Incremental learning algorithms</li>
+                          <li>Retraining triggers based on drift detection</li>
+                          <li>Dynamic model updates using MLOps</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Adaptation Attribution</span></td>
+                    </tr>
+                    <tr>
+                      <td class="approach-name">Adversarial Detection</td>
+                      <td class="ml-algo-type">Robustness Analysis Techniques</td>
+                      <td>
+                        <ul class="examples-list">
+                          <li>Adversarial example detection algorithms</li>
+                          <li>Defense-GAN for adversarial robustness</li>
+                          <li>Saliency map analysis for adversarial perturbations</li>
+                          <li>Ensemble methods for adversarial attack detection</li>
+                        </ul>
+                      </td>
+                      <td><span class="explanation-type">Security Attribution</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+              <h2>Key Insights</h2>
+              <ul>
+                <li><strong>Data Curation:</strong> Focuses on ensuring data quality through outlier detection, bias mitigation, and proper augmentation techniques.</li>
+                <li><strong>Feature Engineering:</strong> Emphasizes understanding feature relationships, importance, and interactions to build more interpretable models.</li>
+                <li><strong>Model Training:</strong> Incorporates interpretability constraints and explainable architectures during the learning process.</li>
+                <li><strong>Model Optimization:</strong> Provides debugging capabilities, interaction analysis, and validation techniques for model improvement.</li>
+                <li><strong>Monitoring & Maintenance:</strong> Ensures continuous model reliability through drift detection, performance tracking, and adversarial robustness.</li>
+              </ul>
+              
+              <p>This comprehensive mapping helps researchers and practitioners select appropriate XAI techniques based on their specific ML pipeline stage and algorithm type.</p>
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+      <footer class="md-footer">
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">
+                © 2025 Ambreen Hanif | Made with Materials from MKDocs
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+    <script src="../assets/js/navigation.js"></script>
+    
+  </body>
+</html>

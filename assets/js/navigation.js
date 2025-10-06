@@ -14,16 +14,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Determine current page and set up paths
     const currentPath = window.location.pathname;
-    const isRootLevel = currentPath.includes('charts.html') || 
-                       currentPath.endsWith('/index.html') || 
-                       currentPath === '/' || 
-                       (!currentPath.includes('/papers/') && 
-                        !currentPath.includes('/domains/') && 
-                        !currentPath.includes('/pipeline/') && 
-                        !currentPath.includes('/evaluation/'));
     
-    const basePath = isRootLevel ? '' : '../';
-    const homeLink = isRootLevel ? '.' : '..';
+    // Debug logging
+    console.log('Current path:', currentPath);
+    
+    // Check if we're in a subdirectory
+    const isInSubdirectory = currentPath.includes('/papers/') ||
+                            currentPath.includes('/domains/') ||
+                            currentPath.includes('/ml-algorithms/') ||
+                            currentPath.includes('/evaluation/');
+    
+    // If in subdirectory, use ../ for paths, otherwise use direct paths
+    const basePath = isInSubdirectory ? '../' : '';
+    const homeLink = isInSubdirectory ? '..' : '.';
+    
+    console.log('Is in subdirectory:', isInSubdirectory);
+    console.log('Base path:', basePath);
 
     // Clean navigation HTML
     const navigationHTML = `
@@ -36,6 +42,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 </a>
                 <span class="nav-title">Survey XAI ML Pipeline</span>
             </div>
+            <a href="https://xai-dashboard-deploy.streamlit.app/" target="_blank" class="dashboard-link" title="XAI Dashboard">
+                <svg class="dashboard-icon" viewBox="0 0 24 24">
+                    <path d="M3,13H11V3H3M3,21H11V15H3M13,21H21V11H13M13,3V9H21V3"/>
+                </svg>
+                <span class="dashboard-text">Dashboard</span>
+            </a>
             <ul class="nav-list">
                 <li><a href="${homeLink}" class="nav-item" data-page="home">
                     <svg class="nav-icon" viewBox="0 0 24 24">
@@ -57,21 +69,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     </svg>
                     <span class="nav-text">Domains</span>
                 </a></li>
-                
-                <li><a href="${basePath}charts.html" class="nav-item" data-page="charts">
+
+                <li><a href="${basePath}ml-algorithms/" class="nav-item" data-page="ml-algorithms">
                     <svg class="nav-icon" viewBox="0 0 24 24">
-                        <path d="M22,21H2V3H4V19H6V17H10V19H12V16H16V19H18V17H22V21Z"/>
+                        <path d="M9,3V5H7V3H9M11,3V5H9V3H11M13,3V5H11V3H13M15,3V5H13V3H15M17,3V5H15V3H17M19,3V5H17V3H19M19,5V7H17V5H19M19,7V9H17V7H19M19,9V11H17V9H19M19,11V13H17V11H19M19,13V15H17V13H19M19,15V17H17V15H19M19,17V19H17V17H19M17,19V21H15V19H17M15,19V21H13V19H15M13,19V21H11V19H13M11,19V21H9V19H11M9,19V21H7V19H9M7,17V19H5V17H7M7,15V17H5V15H7M7,13V15H5V13H7M7,11V13H5V11H7M7,9V11H5V9H7M7,7V9H5V7H7M7,5V7H5V5H7M5,3V5H3V3H5M11,11V13H9V11H11M13,11V13H11V11H13M15,11V13H13V11H15M11,9V11H9V9H11M13,9V11H11V9H13M11,7V9H9V7H11"/>
                     </svg>
-                    <span class="nav-text">Charts</span>
+                    <span class="nav-text">ML Algorithms</span>
                 </a></li>
-                
-                <li><a href="${basePath}pipeline/" class="nav-item" data-page="pipeline">
-                    <svg class="nav-icon" viewBox="0 0 24 24">
-                        <path d="M2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12M7,10L12,15L17,10H7Z"/>
-                    </svg>
-                    <span class="nav-text">Pipeline</span>
-                </a></li>
-                
+
                 <li><a href="${basePath}evaluation/" class="nav-item" data-page="evaluation">
                     <svg class="nav-icon" viewBox="0 0 24 24">
                         <path d="M12,2C13.1,2 14,2.9 14,4C14,5.1 13.1,6 12,6C10.9,6 10,5.1 10,4C10,2.9 10.9,2 12,2M21,9V7L15,1H5C3.89,1 3,1.89 3,3V21A2,2 0 0,0 5,23H19A2,2 0 0,0 21,21V9M19,9H14V4H19V9Z"/>
@@ -155,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
             padding: 0 20px 20px;
             border-bottom: 1px solid var(--md-default-fg-color--lightest, #e0e0e0);
             margin-bottom: 20px;
+            position: relative;
         }
         
         .nav-logo svg {
@@ -208,11 +214,109 @@ document.addEventListener('DOMContentLoaded', function() {
             font-size: 14px;
             font-weight: 500;
         }
-        
+
+        /* Dashboard link */
+        .dashboard-link {
+            position: absolute;
+            top: 0;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            background: var(--md-primary-fg-color, #526cfe);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            gap: 6px;
+        }
+
+        .dashboard-link:hover {
+            background: var(--md-accent-fg-color, #ff4081);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .dashboard-icon {
+            width: 16px;
+            height: 16px;
+            fill: white;
+        }
+
+        .dashboard-text {
+            white-space: nowrap;
+        }
+
+        /* Top header dashboard button */
+        .header-dashboard-link {
+            position: fixed;
+            top: 12px;
+            right: 120px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 10px 16px;
+            background: var(--md-primary-fg-color, #526cfe);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .header-dashboard-link:hover {
+            background: var(--md-accent-fg-color, #ff4081);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+
+        /* Top header GitHub button */
+        .header-github-link {
+            position: fixed;
+            top: 12px;
+            right: 12px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 10px 16px;
+            background: #24292e;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .header-github-link:hover {
+            background: #0366d6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+
+        .github-icon {
+            width: 16px;
+            height: 16px;
+            fill: white;
+        }
+
         /* Collapsed state */
         .clean-sidebar.collapsed .nav-title,
-        .clean-sidebar.collapsed .nav-text {
+        .clean-sidebar.collapsed .nav-text,
+        .clean-sidebar.collapsed .dashboard-text {
             display: none;
+        }
+
+        .clean-sidebar.collapsed .dashboard-link {
+            right: 10px;
+            padding: 8px;
         }
         
         .clean-sidebar.collapsed .nav-header {
@@ -311,6 +415,34 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.appendChild(sidebar);
     document.body.appendChild(toggleBtn);
 
+    // Create header dashboard button
+    const headerDashboardBtn = document.createElement('a');
+    headerDashboardBtn.href = 'https://xai-dashboard-deploy.streamlit.app/';
+    headerDashboardBtn.target = '_blank';
+    headerDashboardBtn.className = 'header-dashboard-link';
+    headerDashboardBtn.title = 'XAI Dashboard';
+    headerDashboardBtn.innerHTML = `
+        <svg class="dashboard-icon" viewBox="0 0 24 24">
+            <path d="M3,13H11V3H3M3,21H11V15H3M13,21H21V11H13M13,3V9H21V3"/>
+        </svg>
+        <span>Dashboard</span>
+    `;
+    document.body.appendChild(headerDashboardBtn);
+
+    // Create header GitHub button
+    const headerGithubBtn = document.createElement('a');
+    headerGithubBtn.href = 'https://github.com/umberH/benchmarking';
+    headerGithubBtn.target = '_blank';
+    headerGithubBtn.className = 'header-github-link';
+    headerGithubBtn.title = 'GitHub Repository';
+    headerGithubBtn.innerHTML = `
+        <svg class="github-icon" viewBox="0 0 24 24">
+            <path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"/>
+        </svg>
+        <span>GitHub</span>
+    `;
+    document.body.appendChild(headerGithubBtn);
+
     // Apply saved state
     const savedState = getSavedState();
     const isCollapsed = savedState === 'collapsed';
@@ -359,17 +491,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 isActive = true;
             } else if (page === 'domains' && currentPath.includes('/domains/')) {
                 isActive = true;
-            } else if (page === 'pipeline' && currentPath.includes('/pipeline/')) {
+            } else if (page === 'ml-algorithms' && currentPath.includes('/ml-algorithms/')) {
                 isActive = true;
             } else if (page === 'evaluation' && currentPath.includes('/evaluation/')) {
                 isActive = true;
-            } else if (page === 'charts' && currentPath.includes('charts.html')) {
-                isActive = true;
-            } else if (page === 'home' && !currentPath.includes('/papers/') && 
-                      !currentPath.includes('/domains/') && 
-                      !currentPath.includes('/pipeline/') && 
-                      !currentPath.includes('/evaluation/') && 
-                      !currentPath.includes('charts.html')) {
+            } else if (page === 'home' && !currentPath.includes('/papers/') &&
+                      !currentPath.includes('/domains/') &&
+                      !currentPath.includes('/ml-algorithms/') &&
+                      !currentPath.includes('/evaluation/')) {
                 isActive = true;
             }
             

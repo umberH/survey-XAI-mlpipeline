@@ -406,67 +406,25 @@
   
     <li class="md-nav__item">
       <a href="domains/" class="md-nav__link">
-        
-  
+
+
   <span class="md-ellipsis">
     Domains
-    
+
   </span>
-  
+
 
       </a>
     </li>
-  
 
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="charts.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Charts
-    
-  </span>
-  
 
-      </a>
-    </li>
-  
 
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="pipeline/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Pipeline
-    
-  </span>
-  
 
-      </a>
-    </li>
-  
 
-    
-      
-      
-  
-  
-  
-  
+
+
+
+
     <li class="md-nav__item">
       <a href="evaluation/" class="md-nav__link">
         
@@ -577,6 +535,23 @@
 </div>
 
 <p><img alt="XAI Taxonomy" src="img/xai_survey_taxonomy.png" /></p>
+
+<h2 id="pipeline-architecture">XAI ML Pipeline Architecture</h2>
+<p>The following interactive diagram illustrates our four-layered architecture for integrating explainability throughout the ML pipeline:</p>
+
+<!-- Pipeline Flow Diagram -->
+<div id="pipeline-flow-diagram" style="width: 100%; background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; margin: 20px 0; text-align: center; min-height: 800px;">
+    <p style="margin-bottom: 10px; color: #666; font-size: 14px;">Interactive four-layered XAI ML pipeline architecture</p>
+</div>
+
+<p>The architecture consists of:</p>
+<ul>
+    <li><strong>Inner Ring (Blue):</strong> Operational layer with core ML pipeline stages from data preparation to monitoring</li>
+    <li><strong>Middle Ring (Green):</strong> Explanation layer with causal XAI functions and techniques</li>
+    <li><strong>Outer Ring (Orange):</strong> Interactivity layer including stakeholders, feedback mechanisms, and impact assessment</li>
+    <li><strong>Governance Overlay (Red):</strong> Top-level governance controls including regulatory compliance, ethical guidelines, privacy & security, and quality assurance that oversee all operations</li>
+</ul>
+
 <h2 id="project-contribution">Project Contribution</h2>
 <p>To contribute a change to add more references to our repository, you can follow these steps:</p>
 <p>Create a branch in git and make your changes.
@@ -635,6 +610,7 @@ We are going to review the request, and merge it to the repository.</p>
       <script src="assets/js/navigation.js"></script>
       <script src="https://d3js.org/d3.v7.min.js"></script>
       <script src="assets/js/taxonomy-diagram.js"></script>
+      <script src="assets/js/pipeline-flow-diagram.js"></script>
       
     
   </body>

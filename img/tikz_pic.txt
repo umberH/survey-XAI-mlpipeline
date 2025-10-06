@@ -1,0 +1,129 @@
+
+% \begin{figure}[ht]
+%     \centering
+%     \begin{tikzpicture}[node distance=2cm]
+%     % Nodes
+%     \node (explainable) [rectangle, draw, text height=.4cm, text centered, rotate=90, xshift=-7cm, yshift =3cm] {Explainable AI for ML Pipeline};
+
+%     % Main stages
+%     \node (data) [rectangle, rounded corners, draw,  text width=3cm, text centered, yshift=1cm] {Data Curation};
+%     \node (feature) [rectangle, rounded corners, draw, below of =data, text width=3cm, text centered, yshift=-2cm] {Feature Engineering};
+%     \node (training) [rectangle, rounded corners, draw, below of=feature, text width=3cm, text centered,yshift=-2cm] {Model Training};
+%     \node (optimization) [rectangle, rounded corners, draw, below of=training, text width=3cm, text centered,yshift=-2cm ] {Model Optimization};
+%     \node (monitoring) [rectangle, rounded corners, draw, below  of=optimization, text width=4cm, text centered, yshift=-1cm] {Monitoring and Maintenance};
+    
+%     % Connecting arrows
+%     \draw [->] (explainable.south) -- (monitoring.west);
+%     \draw [->] (explainable.south) -- (optimization.west);
+%     \draw [->] (explainable.south) -- (training.west);
+%     \draw [->] (explainable.south) -- (feature.west);
+%     \draw [->] (explainable.south) -- (data.west);
+
+%     % Sub-nodes for Data Curation
+%     \node (data1) [rectangle, rounded corners, draw, right of=data, xshift=2cm, yshift=1cm, text width=3cm, text centered] {Understanding Data Distribution};
+%     \node (data2) [rectangle, rounded corners, draw, below of=data1, text width=3cm, yshift=1cm, text centered] {Mitigating Data Bias};
+%     \node (data3) [rectangle, rounded corners, draw, below of=data2, text width=3cm, text centered,yshift=1cm] {Data Quality Audit};
+    
+
+%     \draw [->] (data.east) -- (data1.west);
+%     \draw [->] (data.east) -- (data2.west);
+%     \draw [->] (data.east) -- (data3.west);
+
+%     % Sub-nodes for Feature Engineering
+%     \node (feature1) [rectangle, rounded corners, draw, right of=feature, yshift=1.5cm, xshift=2cm, text width=3cm, text centered] {Feature Importance Analysis};
+%     \node (feature2) [rectangle, rounded corners, draw, below of=feature1, text width=3cm, text centered,  yshift=1cm] {Feature Interaction Analysis};
+%     \node (feature3) [rectangle, rounded corners, draw, below of=feature2, text width=3cm, yshift=1cm, text centered] {Automated Feature Selection};
+
+%     \draw [->] (feature.east) -- (feature1.west);
+%     \draw [->] (feature.east) -- (feature2.west);
+%     \draw [->] (feature.east) -- (feature3.west);
+
+%     % Sub-nodes for Model Training
+%     \node (training1) [rectangle, rounded corners, draw, right of=training, yshift=2cm, xshift=2cm, text width=3cm, text centered] {Algorithmic Explanations};
+%     \node (training2) [rectangle, rounded corners, draw, below of=training1, yshift=0.8cm, text width=3cm, text centered] {Architectural Adjustments};
+%     \node (training3) [rectangle, rounded corners, draw, below of=training2, text width=3cm, text centered, yshift=1cm] {Activation Optimization Mechanism};
+%     \node (training4) [rectangle, rounded corners, draw, below of=training3, text width=3cm, text centered, yshift=1cm] {Surrogate Model Explanations};
+%     \node (training5) [rectangle, rounded corners, draw, below of=training4, text width=3cm, text centered, yshift=1cm] {Training Audit};
+
+%     \draw [->] (training.east) -- (training1.west);
+%     \draw [->] (training.east) -- (training2.west);
+%     \draw [->] (training.east) -- (training3.west);
+%     \draw [->] (training.east) -- (training4.west);
+%     \draw [->] (training.east) -- (training5.west);
+
+%     % Sub-nodes for Model Optimization
+%     \node (optimization1) [rectangle, rounded corners, draw, right of=optimization, xshift=2cm, text width=3cm, text centered, yshift=1cm] {Model Diagnosis};
+%     \node (optimization2) [rectangle, rounded corners, draw, below of=optimization1, text width=3cm, text centered, yshift=1cm] {Model Validation};
+%     \node (optimization3) [rectangle, rounded corners, draw, below of=optimization2, text width=3cm, text centered, yshift=1cm] {Optimization Path};
+
+%     \draw [->] (optimization.east) -- (optimization1.west);
+%     \draw [->] (optimization.east) -- (optimization2.west);
+%     \draw [->] (optimization.east) -- (optimization3.west);
+
+%     % Sub-nodes for Model Monitoring and Maintenance
+%     \node (monitoring1) [rectangle, rounded corners, draw, right of=monitoring, xshift=2cm, text width=3cm, text centered, yshift=1cm] {Model Transparency};
+%     \node (monitoring2) [rectangle, rounded corners, draw, below of=monitoring1, text width=3cm, text centered, yshift=1cm] {Model Audit};
+%     \node (monitoring3) [rectangle, rounded corners, draw, below of=monitoring2, text width=3cm, text centered, yshift=1cm] {Monitoring Feedback};
+
+%     \draw [->] (monitoring.east) -- (monitoring1.west);
+%     \draw [->] (monitoring.east) -- (monitoring2.west);
+%     \draw [->] (monitoring.east) -- (monitoring3.west);
+
+%     % subnodes for the references 
+%     \node (data1ref) [rectangle, rounded corners, draw, right of=monitoring, xshift=6cm, text width=3cm, text centered, yshift=16cm] {\cite{cao_goodnessfit_2005,glazer_learning_2012,martinez-seras_can_2022,de_bernardi_weighted_2023,zhang_invertible_2021,friedman_greedy_2001,goldstein_peeking_2015,krause_interacting_2016,molnar_model-agnostic_2021,casalicchio_visualizing_2019}};
+%     \node (data2ref) [rectangle, rounded corners, draw, right of=monitoring, xshift=6cm, text width=3cm, text centered, yshift=14.7cm] {\cite{kim_interpretability_2018,moayeri_text2concept_2023,crabbe_concept_2024,wachter_counterfactual_2017,guidotti_counterfactual_2022,chang_explaining_2019,mothilal_explaining_2020,goyal_explaining_2020,stepin_factual_2021,dandl_countarfactuals_2024}};
+%     \node (data3ref) [rectangle, rounded corners, draw, right of=monitoring, xshift=6cm, text width=3cm, text centered, yshift=13.5cm] {\cite{hassan_missing_2023,cinquini_handling_2023,zhang_invertible_2021,lundberg_unified_2017,yepmo_anomaly_2022}};
+
+%     \draw [->] (data1.east) -- (data1ref.west);
+%     \draw [->] (data2.east) -- (data2ref.west);
+%     \draw [->] (data3.east) -- (data3ref.west);
+    
+%     \node (feature1ref) [rectangle, rounded corners, draw, right of=monitoring, xshift=6cm, text width=3cm, text centered, yshift=12.5cm] {\cite{ribeiro_why_2016,lundberg_unified_2017,tonekaboni_what_2020,sood_feature_2022,bento_timeshap_2021,Li_explain_2020,kumar_feature-importance_2021}};
+%     \node (feature2ref) [rectangle, rounded corners, draw, right of=monitoring, xshift=6cm, text width=3cm, text centered, yshift=11.3cm] {\cite{ying_gnnexplainer_2019,vu_pgm-explainer_2020,yuan_xgnn_2020,schnake_higher-order_2021,chereda_explaining_2022,ribeiro_why_2016,li_gmathmi_2023,lundberg_unified_2017,sundararajan_shapley_2020}};
+   
+%     \node (feature3ref) [rectangle, rounded corners, draw, right of=monitoring, xshift=6cm, text width=3cm, text centered, yshift=10.3cm] {\cite{ribeiro_why_2016,lundberg_unified_2017,laxmi_lydia_modeling_2022}};
+
+%     \draw [->] (feature1.east) -- (feature1ref.west);
+%     \draw [->] (feature2.east) -- (feature2ref.west);
+%     \draw [->] (feature3.east) -- (feature3ref.west); 
+
+%     \node (training1ref) [rectangle, rounded corners, draw, right of=monitoring, xshift=6cm, text width=3cm, text centered, yshift=9cm] {\cite{ribeiro_model-agnostic_2016,lundberg_unified_2017,ribeiro_anchors_2018,zafar_deterministic_2021,arik_tabnet_2020}};
+%     \node (training2ref) [rectangle, rounded corners, draw, right of=monitoring, xshift=6cm, text width=3cm, text centered, yshift=7.8cm] {\cite{Fukui_attention_2019,zunino_explainable_2021,molchanov_pruning_2017,sabih_utilizing_2020,becking_ecqtextx_2022}};
+%     \node (training3ref) [rectangle, rounded corners, draw, right of=monitoring, xshift=6cm, text width=3cm, text centered, yshift=6.8cm] {\cite{selvaraju_grad-cam_2017,chattopadhay_grad-cam_2018,wang_score-cam_2020,abnar_quantifying_2020,hao_self-attention_2021,montavon_explaining_2017,chen_beyond_2022,iwana_explaining_2019,gur_visualization_2021}};
+%     \node (training4ref) [rectangle, rounded corners, draw, right of=monitoring, xshift=6cm, text width=3cm, text centered, yshift=5.7cm] {\cite{ribeiro_why_2016,lundberg_unified_2017,ribeiro_anchors_2018,zafar_deterministic_2021,arik_tabnet_2020,turner_model_2016,lundberg_unified_2017,strobl_conditional_2008, kontschieder_deep_2015,sundararajan_axiomatic_2017,chan-lau_surrogate_2023,lundberg_consistent_2018, strobl_conditional_2008}};
+%     \node (training5ref) [rectangle, rounded corners, draw, right of=monitoring, xshift=6cm, text width=3cm, text centered, yshift=4.6cm] {\cite{simonyan_deep_2014,lundberg_unified_2017,wachter_counterfactual_2017,ignatiev_relating_2019,koh_understanding_2017,sundararajan_axiomatic_2017}
+%     };
+
+%     \draw [->] (training1.east) -- (training1ref.west);
+%     \draw [->] (training2.east) -- (training2ref.west);
+%     \draw [->] (training3.east) -- (training3ref.west);
+%     \draw [->] (training4.east) -- (training4ref.west);
+%     \draw [->] (training5.east) -- (training5ref.west);
+
+
+%     \node (optimization1ref) [rectangle, rounded corners, draw, right of=monitoring, xshift=6cm, text width=3cm, text centered, yshift=3.7cm] {\cite{ribera_turro_can_2019,hart_shapley_1989,marino_adversarial_2018,mothilal_explaining_2020,chen_stateful_2020,wang_unsupervised_2024}
+%     };
+%     \node (optimization2ref) [rectangle, rounded corners, draw, right of=monitoring, xshift=6cm, text width=3cm, text centered, yshift=2.9cm] {\cite{klaise_alibi_2021,kim_examples_2016,tabebordbar_conceptmap_2019,ghorbani_towards_2019,yeh_completeness-aware_2022}};
+%     \node (optimization3ref) [rectangle, rounded corners, draw, right of=monitoring, xshift=6cm, text width=3cm, text centered, yshift=2cm] {\cite{nicholson_optimization_2017,wang_optimization-based_2025,snoek_practical_2012}};
+
+%     \draw [->] (optimization1.east) -- (optimization1ref.west);
+%     \draw [->] (optimization2.east) -- (optimization2ref.west);
+%     \draw [->] (optimization3.east) -- (optimization3ref.west);
+
+%     \node (monitoring1ref) [rectangle, rounded corners, draw, right of=monitoring, xshift=6cm, text width=3cm, text centered, yshift=1cm] {\cite{lundberg_unified_2017,wachter_counterfactual_2017}};
+%     \node (monitoring2ref) [rectangle, rounded corners, draw, right of=monitoring, xshift=6cm, text width=3cm, text centered, yshift=0cm] {\cite{mothilal_explaining_2020,koh_understanding_2017,simonyan_deep_2014,ignatiev_relating_2019}};
+%     \node (monitoring3ref) [rectangle, rounded corners, draw, right of=monitoring, xshift=6cm, text width=3cm, text centered, yshift=-1cm] {\cite{klaise_alibi_2021, papernot_distillation_2016,samangouei_defense-gan_2018}};
+
+%     \draw [->] (monitoring1.east) -- (monitoring1ref.west);
+%     \draw [->] (monitoring2.east) -- (monitoring2ref.west);
+%     \draw [->] (monitoring3.east) -- (monitoring3ref.west);
+    
+    
+
+
+
+% \end{tikzpicture}
+
+%     \caption{Flowchart for the XAI for Machine Learning phases}
+%     \label{fig:mlpipelineXAI}
+% \end{figure}

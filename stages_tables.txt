@@ -1,0 +1,356 @@
+
+\begin{landscape}
+\tiny
+\begin{longtable}
+{|p{1.7cm}|p{2cm}|p{2.5cm}|p{5cm}|p{3cm}|}
+
+    \caption{Types of Machine Learning Algorithms with XAI Approaches Across the Pipeline Stages}
+    \label{tab:ml_pipeline_xai} \\
+\toprule
+         \textbf{Pipeline Stage }             & \textbf{XAI Approach }               & \textbf{ML Algorithm Type}               & \textbf{Examples}                                   &\textbf{Type of Explanation}             \\
+        \midrule
+   \parbox[c][1.5em][c]{2cm}{\centering\textbf{Data Curation}}
+         % \parbox[c][4em][c]{2.5cm}{\centering\textbf{Data Curation}}
+         &   Data Collection and Preparation       & Data-Centric Approaches          &- Feature Selection 
+          - Data Imputation
+          - Correcting noisy data & Data Attribution                   \\
+          \cline{2-5}
+         & Outlier Detection               & Statistical/Clustering Algorithms  &  - Isolation Forest~\cite{yepmo_anomaly_2022} 
+          - DBSCAN~\cite{sejr_explainable_2021}                    & Anomaly-Based Explanation           \\
+          \cline{2-5}
+          
+        & Data Augmentation
+        & Data Transformation Techniques
+        & - Synthetic Minority Oversampling Technique (SMOTE)
+        -GAN ~\cite{goodfellow_generative_2014,goodfellow_explaining_2015}
+        
+          - Image augmentations (flipping, rotation, scaling) 
+          - NLP augmentations (back translation, word embeddings) 
+          - Time-series augmentations (jittering, window slicing)
+        & Synthetic Data Attribution and Model Robustness \\
+    \cline{2-5}
+
+         & Missing Data Handling 
+         & Pre-processing Algorithms 
+         & -Handling missing data with imputation~\cite{hassan_missing_2023}  
+          - Dataset rebalancing~\cite{cinquini_handling_2023}
+        & Completeness and Consistency Attribution \\
+        \cline{2-5}
+        
+         & Mitigating Data Bias
+        & Concept-Based Fairness Assessment
+        & - Concept Activation Vectors (CAVs)~\cite{kim_interpretability_2018}  
+          - Testing with Concept Activation Vectors (TCAV)~\cite{kim_interpretability_2018}  
+          - Text2Concept~\cite{moayeri_text2concept_2023}
+        & Bias Identification and Fairness Attribution \\
+    \cline{2-5}
+
+    & Out-of-Distribution Detection
+        & XAI-Based Methods
+        & - Visual concepts~\cite{holmberg_exploring_2023} 
+          - Weighted Mutual Information~\cite{de_bernardi_weighted_2023} 
+          - Noise label correction~\cite{zhang_invertible_2021}
+        & Detection of Data Irregularities \\
+    \cline{2-5}
+
+    & Visualization Techniques
+        & Interactive Dashboards
+        & - Partial Dependence Plots (PDPs) 
+          - Individual Conditional Expectation (ICE)
+          - Combined PDP, ICE, and SHAP visualizations~\cite{casalicchio_visualizing_2019} 
+          - Prospector Tool~\cite{krause_interacting_2016}
+        & Interaction-Level and Feature-Level Insights \\
+    \cline{2-5}
+
+    & Counterfactual Explanations
+        & Optimization-Based Methods
+        & - FIDO~\cite{chang_explaining_2019} 
+          - DiCE~\cite{mothilal_explaining_2020} 
+          - Counterfactual Visual Explanations~\cite{goyal_explaining_2020} 
+          - CountARFactuals~\cite{dandl_countarfactuals_2024}
+        & "What-If" Scenarios for Bias Detection \\
+    \cline{2-5}
+
+    & User Feedback Loop
+        & Feedback-Based Approaches
+        & - User-supported counterfactual explanation generation~\cite{suffian_fce_2022}  
+          - Linguistic counterfactuals~\cite{stepin_factual_2021}
+        & Trustworthy and Interpretable Counterfactuals \\
+        \cline{2-5}
+         & Dimensionality Reduction
+        & Dimensionality Reduction Techniques
+        & - Principal Component Analysis (PCA)  
+          - t-SNE for visualizing clusters 
+          - UMAP (Uniform Manifold Approximation and Projection)~\cite{mcinnes_umap_2020}
+        & Feature-Level Visualization and Clustering Attribution \\
+   \hline
+
+         \parbox[c][2.5em][c]{2cm}{\centering\textbf{Feature Engineering}}
+         & Feature Importance Analysis
+        & Attribution-Based Techniques
+        & - LIME~\cite{ribeiro_why_2016}
+          - SHAP~\cite{lundberg_unified_2017}
+          - FIT for temporal models~\cite{tonekaboni_what_2020}
+          - TIME for temporal explanations~\cite{sood_feature_2022}
+          - TimeShap for sequence models~\cite{bento_timeshap_2021}
+          - Graph feature importance (e.g., FIFI)~\cite{kumar_feature-importance_2021}
+          - Node feature importance for GNNs~\cite{Li_explain_2020}
+        & Importance Attribution and Transparency \\
+    \cline{2-5}
+
+     & Redundant Feature Detection
+        & Visualization and Attribution
+        & - Correlation heatmaps 
+          - Partial Dependence Plots (PDPs)
+          - SHAP for feature redundancy detection~\cite{lundberg_unified_2017}
+          - LIME for low-scoring features~\cite{ribeiro_why_2016}
+          - Variance Inflation Factor (VIF)~\cite{laxmi_lydia_modeling_2022}
+        & Evidence-Based Redundancy Detection \\
+    \cline{2-5}
+
+     & Identifying Feature Correlation
+        & Hybrid Approaches
+        & - Influence functions~\cite{han_explaining_2020} 
+          - Hybrid SHAP and VIF~\cite{laxmi_lydia_modeling_2022} 
+          - Attribution-based methods for irrelevant features~\cite{kim_multi-component_2021} 
+          - Statistical and visualization tools 
+          - Feature maps
+        & Correlation Detection and Interpretation \\
+    \cline{2-5}
+    & Feature Interaction Analysis
+        & Interaction-Based Techniques
+        & - Interaction plots 
+          - Partial Dependence Plots (PDPs) 
+          - GNNExplainer for GNNs~\cite{ying_gnnexplainer_2019} 
+          - PGMExplainer for probabilistic models~\cite{vu_pgm-explainer_2020} 
+          - XGNN for generating explanations~\cite{yuan_xgnn_2020} 
+          - Shapley Interaction Index~\cite{grabisch_axiomatic_1999} 
+          - Shapley Taylor Interaction~\cite{sundararajan_shapley_2020}
+        & Interaction Attribution and Visualization \\
+    \cline{2-5}
+
+    & Identifying Non-Linear Relationships
+        & Visualization-Based Techniques
+        & - PDPs for global patterns 
+          - ICE plots for instance-level explanations 
+          - SHAP for non-linear dynamics~\cite{chakraborty_explainable_2021} 
+          - Layer-wise Relevance Propagation (LRP) 
+          - Feature maps for non-linear relationships
+        & Non-Linear Interaction Attribution \\
+    \cline{2-5}
+
+    & Generative Feature Techniques
+        & Neuron Activation Methods
+        & - Image generation for neuron activation~\cite{simonyan_deep_2014} 
+          - Synthesizing features for activation~\cite{nguyen_synthesizing_2016} 
+          - Explainable Data Augmentation 
+        & Feature Generation for Interpretability \\
+    \cline{2-5}
+
+    & Differentiation-Based Methods
+        & Gradient-Based Techniques
+        & - Integrated Gradients~\cite{sundararajan_axiomatic_2017}
+          - SmoothGrad~\cite{smilkov_smoothgrad_2017}
+          - DeepLift~\cite{shrikumar_learning_2017}
+          - GradSHAP~\cite{lundberg_unified_2017} 
+          - Integrated Hessians~\cite{janizek_explaining_2020}
+        & Gradient Attribution for Sensitivity \\
+    \cline{2-5}
+
+    & Redundant or Correlated Features
+        & Dependency-Based Techniques
+        & - Kernel SHAP for collinearity~\cite{aas_explaining_2021} 
+          - Shapley cohort refinement~\cite{mase_explaining_2020} 
+          - Normalized Movement Rate (NMR) 
+          - Statistical correlation matrices 
+          - SHAP dependence plots
+        & Collinearity and Dependency Attribution \\
+            \cline{2-5}
+          & Feature Construction Techniques
+        & Transformation and Generation
+        & - Polynomial feature construction 
+          - Autoencoder-based latent features 
+          - Interaction-based feature generation~\cite{grabisch_axiomatic_1999} 
+          - Embedding-based feature creation 
+          - Generative models for feature construction~\cite{nguyen_synthesizing_2016} 
+          - Data augmentation for feature diversity 
+          - Sparse feature representations
+        & Constructive Feature Attribution  \\
+         \hline
+
+         \parbox[c][2.5em][c]{2cm}{\centering\textbf{Model Training}}
+          & Algorithmic Interpretability
+        & Surrogate Models
+        & - LIME~\cite{ribeiro_model-agnostic_2016}
+          - SHAP~\cite{lundberg_unified_2017}
+          - Anchors~\cite{ribeiro_anchors_2018} 
+          % - DLIME~\cite{zafar_deterministic_2021}
+          % - TabNet~\cite{arik_tabnet_2020}
+        & Model Decision Attribution \\
+    \cline{2-5}
+
+         & Activation-Based Optimization
+        & Attention-Based Techniques
+        & - Grad-CAM~\cite{selvaraju_grad-cam_2017} 
+          - Score-CAM~\cite{wang_score-cam_2020} 
+          - Grad-CAM++~\cite{chattopadhay_grad-cam_2018} 
+          - Attention rollout~\cite{abnar_quantifying_2020} 
+          - Transformer attribution~\cite{hao_self-attention_2021}
+        & Attention Attribution and Visualization \\
+    \cline{2-5}
+        & Architectural Adjustments
+        & Pruning and Quantization
+        & - Explainable quantization~\cite{sabih_utilizing_2020} 
+          - Gradient-based pruning~\cite{molchanov_pruning_2017} 
+          - Attention Branch Networks (ABN)~\cite{Fukui_attention_2019} 
+          - Domain generalization with XAI feedback~\cite{zunino_explainable_2021}
+        & Architecture Optimization and Explainability \\
+    \cline{2-5}
+
+    & Model Reasoning Process
+        & Intermediate Feature Visualization
+        & - Deconvolution 
+          - Eigen-CAM~\cite{muhammad_eigen-cam_2020} 
+          - Network dissection~\cite{bau_network_2017} 
+          - DeepVis 
+          - DeepDream~\cite{yosinski_how_2014}
+        & Layer and Neuron Attribution \\
+    \cline{2-5}
+
+    & Multimodal Explanations
+        & Cross-Modal Attribution
+        & - Visual Question Answering (VQA-X)~\cite{park_multimodal_2018} 
+          - Cross-modal attention maps~\cite{hessel_does_2020} 
+          - Personality-aligned visual-language explanations~\cite{kaya_multi-modal_2017}
+        & Multimodal Attribution and Justification \\
+
+        
+         \hline
+
+          \parbox[c][2.5em][c]{2cm}{\centering\textbf{Model Optimization}}
+
+          & Model Diagnosis
+        & Post-Hoc Explanations
+        & - LIME for local feature attribution~\cite{ribera_turro_can_2019} 
+          - SHAP for global and local feature attribution~\cite{hart_shapley_1989} 
+          - Adversarial examples for feature importance~\cite{marino_adversarial_2018} 
+          - Counterfactual SHAP for debugging~\cite{mothilal_explaining_2020} 
+          - Integrated Gradients for robustness evaluation~\cite{chen_stateful_2020} 
+          - Error attribution using adversarial data~\cite{wang_unsupervised_2024}
+        & Debugging and Error Explanation \\
+    \cline{2-5}
+
+    & Feature Interaction Explanations
+        & Interaction-Based Techniques
+        & - SHAP Interaction Values~\cite{lundberg_consistent_2018} 
+          - Neural Interaction Detection (NID)~\cite{tsang_detecting_2018} 
+          - Interaction plots for feature relationships 
+          - Integrated Gradients for feature interaction 
+          - Shapley Interaction Index for pairwise interactions~\cite{grabisch_axiomatic_1999}
+        & Interaction Attribution and Model Selection \\
+    \cline{2-5}
+
+    & Model Validation
+        & Validation Techniques
+        & - Alibi for model validation~\cite{klaise_alibi_2021} 
+          - Causal inference for bias detection 
+          - FairSHAP for fairness validation 
+          - Saliency maps for critical region analysis  
+          - GradCAM for region-level explanations~\cite{selvaraju_grad-cam_2017} 
+          - SmoothGrad for noise reduction~\cite{smilkov_smoothgrad_2017} 
+          - Integrated Gradients for validation~\cite{sundararajan_axiomatic_2017} 
+          - Comparison of saliency-based techniques~\cite{ancona_unified_2017}
+        & Performance and Reliability Explanation \\
+    \cline{2-5}
+
+    & Gradient-Based Optimization
+        & Gradient-Based Techniques
+        & - DeepSHAP combining SHAP and DeepLIFT~\cite{lundberg_unified_2017} 
+          - Integrated Hessians for higher-order interactions~\cite{janizek_explaining_2020} 
+          - XRAI for region-based saliency
+          - GradSHAP for gradient and Shapley values 
+          - Gradient-based saliency maps for deep models~\cite{simonyan_deep_2014}
+        & Gradient Attribution and Optimization Explanation \\
+    \cline{2-5}
+
+    & Optimization Path Attribution
+        & Optimization Trajectory Analysis
+        & - Optimization path attribution~\cite{akhtar_towards_202
+        3} 
+          - Explainable hyperparameter tuning 
+          - Bayesian optimization with explainability 
+          - Model performance tracking during optimization
+        & Learning Dynamics and Hyperparameter Insights \\
+         
+         \hline
+
+         \parbox[c][2.5em][c]{2cm}{\centering\textbf{Monitoring and Maintenance}}
+          & Model Transparency
+        & Transparent Models
+        & - Glass-box models (e.g., decision trees, linear regression) 
+          - Model explanations with SHAP~\cite{lundberg_unified_2017} 
+          - Counterfactual explanations for user-facing decisions~\cite{wachter_counterfactual_2017}
+        & Transparency for Stakeholders and Regulators \\
+    \cline{2-5}
+
+    & Model Audit
+        & Regulatory Compliance Techniques
+        & - Feature importance for sensitivity analysis 
+          - Counterfactual explanations for audit trails~\cite{mothilal_explaining_2020} 
+          - Adversarial examples for robustness testing~\cite{ignatiev_relating_2019} 
+          - Influential sample analysis~\cite{koh_understanding_2017} 
+          - Saliency maps for critical region identification~\cite{simonyan_deep_2014}
+        & Audit and Compliance Attribution \\
+    \cline{2-5}
+
+    & Drift Detection
+        & Statistical and Model-Agnostic Methods
+        & - KS Test for drift analysis 
+          - Population Stability Index (PSI) 
+          - Distribution-based monitoring 
+          - SHAP drift analysis for feature changes
+        & Drift Attribution and Monitoring Explanation \\
+    \cline{2-5}
+
+    & Model Performance Monitoring
+        & Automated Pipelines and Tools
+        & - Performance metrics tracking (e.g., AUC, accuracy) 
+          - MLflow for model lifecycle management
+          % ~\cite{noauthor_mlflowmlflow_2025}
+           
+          - Continuous monitoring for retraining triggers
+        & Performance and Lifecycle Attribution \\
+    \cline{2-5}
+
+    & Knowledge-Aware Explanations
+        & Concept-Based Techniques
+        & - Concept Activation Vectors (CAVs)~\cite{kim_examples_2016} 
+          - TCAV for directional sensitivity~\cite{kim_interpretability_2018}
+           
+          - ACE for automatic concept generation~\cite{ghorbani_towards_2019} 
+          - ConceptSHAP for feature completeness~\cite{yeh_completeness-aware_2022}
+        & Trustworthy and Scalable Attribution \\
+    \cline{2-5}
+
+    & Retraining and Updates
+        & Automated Update Pipelines
+        & - Continuous retraining pipelines~\cite{gholami_assessment_2024,gholami_interpretable_2024,gholami_explainable_2024} 
+          - Dataset versioning with DVC~\cite{freund_exploring_2024} 
+          - Incremental learning algorithms~\cite{losing_incremental_2018} 
+          - Retraining triggers based on drift detection~\cite{klaise_alibi_2021} 
+          - Dynamic model updates using MLOps
+          % ~\cite{schlegel_mlflow2prov_2023}
+        & Continuous Improvement and Adaptation Attribution \\
+    \cline{2-5}
+
+    & Adversarial Detection
+        & Robustness Analysis Techniques
+        & - Adversarial example detection algorithms~\cite{papernot_distillation_2016} 
+          - Defense-GAN for adversarial robustness~\cite{samangouei_defense-gan_2018} 
+          - Saliency map analysis for adversarial perturbations~\cite{simonyan_deep_2014} 
+          - Ensemble methods for adversarial attack detection
+        & Robustness and Security Attribution \\
+         \bottomrule
+ 
+\end{longtable}
+\end{landscape} }
