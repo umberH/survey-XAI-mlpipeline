@@ -10,7 +10,7 @@ const pipelineConfig = [
     ]
   },
   {
-    name: "Feature Engineering", 
+    name: "Feature Engg", 
     children: [
       "Causal feature selection",
       "Concept activation vectors with causal grounding"
@@ -167,13 +167,13 @@ function createPipelineFlowDiagram(containerId) {
     .endAngle(d => d.x1)
     .innerRadius(d => {
       if (d.depth === 0) return 0;
-      if (d.depth === 1) return radius * 0.20; // Pipeline stages: 20-50% (matches center circle)
-      if (d.depth === 2) return radius * 0.50; // Explainability layer: 50-70% (reduced size)
+      if (d.depth === 1) return radius * 0.1; // Pipeline stages: 20-50% (matches center circle)
+      if (d.depth === 2) return radius * 0.45; // Explainability layer: 50-70% (reduced size)
       return Math.sqrt(d.y0);
     })
     .outerRadius(d => {
-      if (d.depth === 1) return radius * 0.50; // Pipeline stages end at 50%
-      if (d.depth === 2) return radius * 0.70; // Explainability layer end at 70%
+      if (d.depth === 1) return radius * 0.45; // Pipeline stages end at 50%
+      if (d.depth === 2) return radius * 0.65; // Explainability layer end at 70%
       return Math.sqrt(d.y1);
     });
   
@@ -267,10 +267,10 @@ function createPipelineFlowDiagram(containerId) {
         textRadius = radius * 0.35; // Middle of 0.20 to 0.50
       } else if (d.depth === 2) {
         // Explainability functions: center text in second ring  
-        textRadius = radius * 0.60; // Middle of 0.50 to 0.70
+        textRadius = radius * 0.55; // Middle of 0.50 to 0.70
       } else if (d.depth === 3) {
         // Interactivity layer: center text in third ring
-        textRadius = radius * 0.825; // Middle of 0.70 to 0.95
+        textRadius = radius * 0.75; // Middle of 0.70 to 0.95
       } else {
         textRadius = (Math.sqrt(d.y0) + Math.sqrt(d.y1)) / 2;
       }
@@ -291,9 +291,9 @@ function createPipelineFlowDiagram(containerId) {
     .attr('dy', '0.35em')
     .style('fill', d => d.depth === 3 ? '#000' : (d.depth === 1 ? '#333' : '#000'))
     .style('font-size', d => {
-      if (d.depth === 1) return '16px';  // Pipeline stages: 14px → 16px
-      if (d.depth === 2) return '14px';  // Explainability functions: 12px → 14px
-      if (d.depth === 3) return '12px';  // Legacy: 10px → 12px
+      if (d.depth === 1) return '18px';  // Pipeline stages: 14px → 16px
+      if (d.depth === 2) return '16px';  // Explainability functions: 12px → 14px
+      if (d.depth === 3) return '16px';  // Legacy: 10px → 12px
       return '14px';
     })
     .style('font-weight', d => d.depth === 1 ? 'bold' : (d.depth === 2 ? 'bold' : '600'))
@@ -342,8 +342,8 @@ function createPipelineFlowDiagram(containerId) {
     
   // Add simple interactivity arcs
   const simpleInteractivityArc = d3.arc()
-    .innerRadius(radius * 0.72)  // Start closer after explainability layer
-    .outerRadius(radius * 0.90);
+    .innerRadius(radius * 0.67)  // Start closer after explainability layer
+    .outerRadius(radius * 0.84);
   
   // REDESIGNED INTERACTIVITY LAYER - Much cleaner approach
   const interactivityColors = ['#2E86AB', '#A23B72', '#F18F01']; // Professional colors
@@ -388,7 +388,7 @@ function createPipelineFlowDiagram(containerId) {
     
     // Section title - larger and more prominent
     const sectionTextAngle = (sectionStartAngle + sectionEndAngle) / 2;
-    const sectionTextRadius = radius * 0.81;
+    const sectionTextRadius = radius * 0.71;
     const sectionX = Math.sin(sectionTextAngle) * sectionTextRadius;
     const sectionY = -Math.cos(sectionTextAngle) * sectionTextRadius;
     let sectionRotation = sectionTextAngle * 180 / Math.PI;
@@ -402,7 +402,7 @@ function createPipelineFlowDiagram(containerId) {
       .attr('text-anchor', 'middle')
       .attr('dy', '0.35em')
       .attr('fill', interactivityColors[sectionIndex])
-      .attr('font-size', '20px')
+      .attr('font-size', '25px')
       .attr('font-weight', 'bold')
       .style('pointer-events', 'none')
       .text(section.name);
@@ -410,8 +410,8 @@ function createPipelineFlowDiagram(containerId) {
   
   // Add sub-components in a separate, cleaner ring
   const subComponentArc = d3.arc()
-    .innerRadius(radius * 0.74)
-    .outerRadius(radius * 0.88);
+    .innerRadius(radius * 0.68)
+    .outerRadius(radius * 0.83);
   
   // Create individual sub-component segments
   let globalComponentIndex = 0;
@@ -457,7 +457,7 @@ function createPipelineFlowDiagram(containerId) {
       
       // Component text
       const compTextAngle = (componentStartAngle + componentEndAngle) / 2;
-      const compTextRadius = radius * 0.81;
+      const compTextRadius = radius * 0.77;
       const compX = Math.sin(compTextAngle) * compTextRadius;
       const compY = -Math.cos(compTextAngle) * compTextRadius;
       let compRotation = compTextAngle * 180 / Math.PI;
@@ -474,7 +474,7 @@ function createPipelineFlowDiagram(containerId) {
         .attr('text-anchor', 'middle')
         .attr('dy', '0.35em')
         .attr('fill', '#2C3E50')
-        .attr('font-size', '12px')
+        .attr('font-size', '16px')
         .attr('font-weight', '500')
         .style('pointer-events', 'none')
         .text(displayText);
@@ -489,8 +489,8 @@ function createPipelineFlowDiagram(containerId) {
   const governanceLabels = ['Regulatory', 'Ethical', 'Privacy', 'Quality'];
   const governanceColors = ['#8E44AD', '#27AE60', '#E74C3C', '#F39C12']; // Royal purple, forest green, strong red, gold
   const governanceArcOuter = d3.arc()
-    .innerRadius(radius * 0.94)  // Brought even closer for smaller diagram
-    .outerRadius(radius * 1.06);
+    .innerRadius(radius * 0.85)  // Brought even closer for smaller diagram
+    .outerRadius(radius * .94);
   
   for (let i = 0; i < 4; i++) {
     // Make regulatory section (first one) wider
@@ -555,7 +555,7 @@ function createPipelineFlowDiagram(containerId) {
       
     // Add text label
     const textAngle = (startAngle + endAngle) / 2;
-    const textRadius = radius * 1.0; // Center text in governance overlay ring
+    const textRadius = radius * .89; // Center text in governance overlay ring
     const x = Math.sin(textAngle) * textRadius;
     const y = -Math.cos(textAngle) * textRadius;
     let rotation = textAngle * 180 / Math.PI;
@@ -570,7 +570,7 @@ function createPipelineFlowDiagram(containerId) {
       .attr('text-anchor', 'middle')
       .attr('dy', '0.35em')
       .attr('fill', '#4B0082') // Indigo for text
-      .attr('font-size', '17px')
+      .attr('font-size', '20px')
       .attr('font-weight', 'bold')
       .style('pointer-events', 'none')
       .text(governanceLabels[i]);
@@ -579,7 +579,7 @@ function createPipelineFlowDiagram(containerId) {
   // Old complex governance overlay removed - using simplified version above
   
   // Add center circle - reduced size
-  const centerRadius = radius * 0.20;
+  const centerRadius = radius * 0.15;
   g.append('circle')
     .attr('r', centerRadius)
     .style('fill', 'white')
@@ -622,7 +622,7 @@ function createPipelineFlowDiagram(containerId) {
   layerDesc.append('text')
     .attr('x', 0)
     .attr('y', 0)
-    .attr('font-size', '12px')
+    .attr('font-size', '16px')
     .attr('font-weight', 'bold')
     .attr('fill', '#333')
     .text('Architecture Layers:');
@@ -638,16 +638,17 @@ function createPipelineFlowDiagram(containerId) {
     layerDesc.append('text')
       .attr('x', 0)
       .attr('y', 18 + (i * 13))
-      .attr('font-size', '10px')
-      .attr('fill', i === 2 ? '#FF9800' : (i === 3 ? '#C9302C' : '#666'))
+      .attr('font-size', '14px')
+      .attr('fill', i === 0 ? '#4A90E2' : (i === 1 ? '#7ED321' : (i === 2 ? '#FF9800' : '#C9302C')))
       .attr('font-weight', i >= 2 ? 'bold' : 'normal')
       .text(layer);
   });
   
   // Overlay descriptions removed as requested
   
-  // Add instructions
+  // Add instructions (will be hidden during export)
   svg.append('text')
+    .attr('class', 'export-exclude')
     .attr('x', width / 2)
     .attr('y', height - 20)
     .attr('text-anchor', 'middle')
@@ -775,17 +776,35 @@ function addExportButton(containerId) {
 
 // Function to convert SVG to PNG and download
 function downloadSVGAsPNG(containerId, filename, scale = 1) {
-  const svg = d3.select(containerId).select('svg').node();
-  const svgData = new XMLSerializer().serializeToString(svg);
-  
+  const svg = d3.select(containerId).select('svg');
+
+  // Temporarily hide elements marked for export exclusion
+  const excludedElements = svg.selectAll('.export-exclude');
+  excludedElements.style('display', 'none');
+
+  const svgNode = svg.node();
+
+  // Clone SVG to avoid modifying the original during serialization
+  const clonedSvg = svgNode.cloneNode(true);
+
+  // Remove export-exclude elements from clone
+  const clonedExcluded = clonedSvg.querySelectorAll('.export-exclude');
+  clonedExcluded.forEach(el => el.remove());
+
+  const svgData = new XMLSerializer().serializeToString(clonedSvg);
+
+  // Restore hidden elements in original
+  excludedElements.style('display', null);
+
   // Create canvas
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
-  
-  // Get SVG dimensions
-  const svgRect = svg.getBoundingClientRect();
-  canvas.width = svgRect.width * scale;
-  canvas.height = svgRect.height * scale;
+
+  // Get SVG dimensions from attributes (not bounding box)
+  const width = parseInt(svgNode.getAttribute('width')) || 900;
+  const height = parseInt(svgNode.getAttribute('height')) || 900;
+  canvas.width = width * scale;
+  canvas.height = height * scale;
   
   // Create image from SVG
   const img = new Image();

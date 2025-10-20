@@ -42,12 +42,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 </a>
                 <span class="nav-title">Survey XAI ML Pipeline</span>
             </div>
-            <a href="https://xai-dashboard-deploy.streamlit.app/" target="_blank" class="dashboard-link" title="XAI Dashboard">
+            
+            <!--<a href="https://xai-dashboard-deploy.streamlit.app/" target="_blank" class="dashboard-link" title="XAI Dashboard">
                 <svg class="dashboard-icon" viewBox="0 0 24 24">
                     <path d="M3,13H11V3H3M3,21H11V15H3M13,21H21V11H13M13,3V9H21V3"/>
                 </svg>
                 <span class="dashboard-text">Dashboard</span>
-            </a>
+            </a>-->
             <ul class="nav-list">
                 <li><a href="${homeLink}" class="nav-item" data-page="home">
                     <svg class="nav-icon" viewBox="0 0 24 24">
