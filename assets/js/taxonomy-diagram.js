@@ -3,9 +3,10 @@ class TaxonomyDiagram {
     constructor(containerId) {
         this.container = d3.select(containerId);
         this.width = 1000;
-        this.height = 1400;
+        this.height = 3500;
         this.margin = { top: 20, right: 90, bottom: 20, left: 90 };
-        
+        this.i = 0;
+
         // Taxonomy data structure
         this.data = {
             name: "Dimensions of XAI",
@@ -13,11 +14,12 @@ class TaxonomyDiagram {
                 {
                     name: "Input",
                     children: [
-                        { name: "Feature Attribution" },
-                        { name: "Rules" },
-                        { name: "Textual" },
-                        { name: "Visualization" },
-                        { name: "Mixed" }
+                        { name: "Image" },
+                        { name: "Vectors" },
+                        { name: "Tabular" },
+                        { name: "Graphs" },
+                        { name: "Text" },
+                        { name: "Time Series" }
                     ]
                 },
                 {
@@ -33,41 +35,47 @@ class TaxonomyDiagram {
                 {
                     name: "Stage of Explanation",
                     children: [
-                        { name: "Feature Attribution" },
-                        { name: "Rules" },
-                        { name: "Textual" },
-                        { name: "Visualization" },
-                        { name: "Mixed" }
+                        { name: "Intrinsic" },
+                        { name: "Post-hoc" }
                     ]
                 },
                 {
                     name: "Strategy for Explanation",
                     children: [
-                        { name: "Feature Attribution" },
-                        { name: "Rules" },
-                        { name: "Textual" },
-                        { name: "Visualization" },
-                        { name: "Mixed" }
+                        { name: "User Centered" },
+                        { name: "Goal Driven" },
+                        { name: "Data Driven" }
+                    ]
+                },
+                {
+                    name: "Cognitive Alignment",
+                    children: [
+                        { name: "Interactive" },
+                        { name: "Narrative" },
+                        { name: "Contrastive" },
+                        { name: "Counterfactual" },
+                        { name: "Analogical" }
+                    ]
+                },
+                {
+                    name: "Reflexive Explainability-Centric ML",
+                    children: [
+                        { name: "Operational Layer" },
+                        { name: "Explanation Layer" },
+                        { name: "Interactivity Layer" },
+                        { name: "Governance Layer" }
                     ]
                 },
                 {
                     name: "Application Domain",
                     children: [
-                        { name: "Feature Attribution" },
-                        { name: "Rules" },
-                        { name: "Textual" },
-                        { name: "Visualization" },
-                        { name: "Mixed" }
-                    ]
-                },
-                {
-                    name: "Explanation Usage in ML Pipeline",
-                    children: [
-                        { name: "Feature Attribution" },
-                        { name: "Rules" },
-                        { name: "Textual" },
-                        { name: "Visualization" },
-                        { name: "Mixed" }
+                        { name: "Finance" },
+                        { name: "Healthcare" },
+                        { name: "Industry 5.0" },
+                        { name: "Aviation" },
+                        { name: "Education" },
+                        { name: "Cyber Security" },
+                        { name: "Miscellaneous" }
                     ]
                 }
             ]
@@ -90,12 +98,12 @@ class TaxonomyDiagram {
             
         // Create main group
         this.g = this.svg.append("g")
-            .attr("transform", `translate(${this.margin.left},${this.margin.top})`);
+            .attr("transform", `translate(${this.margin.left},${600})`);
         
         // Create tree layout
         this.treemap = d3.tree()
-            .size([this.height - this.margin.top - this.margin.bottom, 
-                   this.width - this.margin.left - this.margin.right]);
+            .nodeSize([100, 200])
+            .separation((a, b) => a.parent == b.parent ? 1 : 2);
         
         // Create hierarchy
         this.root = d3.hierarchy(this.data, d => d.children);
@@ -113,7 +121,7 @@ class TaxonomyDiagram {
             .attr("x", this.width / 2)
             .attr("y", 20)
             .attr("text-anchor", "middle")
-            .style("font-size", "18px")
+            .style("font-size", "20px")
             .style("font-weight", "bold")
             .style("fill", "var(--md-primary-fg-color, #526cfe)")
             .text("Interactive XAI Taxonomy");
@@ -161,9 +169,10 @@ class TaxonomyDiagram {
             .attr('dy', '.35em')
             .attr('x', d => d.children || d._children ? -25 : 25)
             .attr('text-anchor', d => d.children || d._children ? 'end' : 'start')
+            .attr('transform', d => d.depth === 0 ? 'rotate(-90)' : '')
             .text(d => d.data.name)
             .style('fill-opacity', 1e-6)
-            .style('font-size', d => d.depth === 0 ? '16px' : '13px')
+            .style('font-size', d => d.depth === 0 ? '18px' : '16px')
             .style('font-weight', d => d.depth === 0 ? 'bold' : 'normal')
             .style('cursor', 'pointer');
         

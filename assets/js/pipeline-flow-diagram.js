@@ -639,7 +639,7 @@ function createPipelineFlowDiagram(containerId) {
       .attr('x', 0)
       .attr('y', 18 + (i * 13))
       .attr('font-size', '14px')
-      .attr('fill', i === 0 ? '#4A90E2' : (i === 1 ? '#7ED321' : (i === 2 ? '#FF9800' : '#C9302C')))
+      .attr('fill', i === 0 ? '#000000ff' : (i === 1 ? '#000000ff' : (i === 2 ? '#000000ff' : '#000000ff')))
       .attr('font-weight', i >= 2 ? 'bold' : 'normal')
       .text(layer);
   });
